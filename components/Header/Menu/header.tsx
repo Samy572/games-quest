@@ -12,7 +12,7 @@ const Header = () => {
 	return (
 		<header
 			className="  pt-5 flex items-center justify-around
-     transition-all "
+     transition-all lg:justify-center "
 		>
 			{' '}
 			<Logo />
@@ -25,7 +25,7 @@ const Header = () => {
 				</Label>
 				<Input
 					id="search"
-					className="bg-slate-300 rounded-2xl text-black  px-6 w-32 sm:w-80 hover:bg-white
+					className="bg-slate-300 rounded-2xl text-black  px-6 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white   
         "
 					type="text"
 					placeholder="Rechercher un jeu"
