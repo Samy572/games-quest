@@ -1,7 +1,6 @@
 'use client';
 import { GamesOfTheYear } from '@/components/GameOfTheYear/gameoftheyear';
 import Header from '@/components/Header/Menu/header';
-import { MenuToggle } from '@/components/Header/Menu/menu';
 import Context from '@/context/Context';
 import { useState } from 'react';
 
@@ -12,7 +11,12 @@ export default function Home() {
 		setToggleMenu(!toggleMenu);
 	};
 
-	const contextValue = {
+	interface MyContextType {
+		toggleMenu: boolean;
+		toggleMenuHandler: () => void;
+	}
+
+	const contextValue: MyContextType = {
 		toggleMenu,
 		toggleMenuHandler,
 	};
@@ -21,7 +25,6 @@ export default function Home() {
 		<Context.Provider value={contextValue}>
 			<div>
 				<Header />
-				<MenuToggle />
 				<GamesOfTheYear />
 			</div>
 		</Context.Provider>

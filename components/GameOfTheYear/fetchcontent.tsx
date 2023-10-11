@@ -1,5 +1,3 @@
-export const FetchContent = () => {
-  return (
-    <div>fetchcontent</div>
-  )
-}
+// export const FetchContent = async () => {
+// 	return <div>fetchcontent</div>;
+// };

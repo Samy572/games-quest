@@ -3,11 +3,9 @@ import { FetchContent } from './fetchcontent';
 
 export const GamesOfTheYear = () => {
 	return (
-		<div className="container ">
+		<div>
 			<LeftMenu />
-			<main>
-				<FetchContent />
-			</main>
+			<main>{/* <FetchContent /> */}</main>
 		</div>
 	);
 };

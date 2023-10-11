@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 const List = ({
 	path,
 	name,
@@ -11,18 +12,18 @@ const List = ({
 	Icon?: JSX.Element;
 }) => {
 	return (
-		<li className={clsx(className, (className = 'py-2 text-md  flex   '))}>
-			<a
+		<li className={clsx(className, (className = 'py-2 text-md  flex  '))}>
+			<Link
 				href={path}
-				className="text-gray-400 inline-flex items-center transition-all  hover:text-gray-50 "
+				className="text-gray-200 inline-flex items-center transition-all px-4 py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 "
 			>
 				{Icon && (
-					<div className="icon  mr-1 border rounded-full p-2  ">
+					<div className="icon  mr-2 border rounded-full p-2 bg-white text-black ">
 						{Icon && Icon}
 					</div>
 				)}
 				{name}
-			</a>
+			</Link>
 		</li>
 	);
 };
