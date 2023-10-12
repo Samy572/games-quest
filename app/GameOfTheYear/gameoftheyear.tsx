@@ -1,5 +1,4 @@
-import { LeftMenu } from './LeftMenu/letfmenu';
-import { FetchContent } from './fetchcontent';
+import { LeftMenu } from '../LeftMenu/letfmenu';
 
 export const GamesOfTheYear = () => {
 	return (

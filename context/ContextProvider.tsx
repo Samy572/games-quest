@@ -1,10 +1,12 @@
 'use client';
-import { GamesOfTheYear } from '@/components/GameOfTheYear/gameoftheyear';
-import Header from '@/components/Header/Menu/header';
-import Context from '@/context/Context';
 import { useState } from 'react';
+import Context from '@/context/Context';
 
-export default function Home() {
+export default function ContextProvider({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const [toggleMenu, setToggleMenu] = useState(false);
 
 	const toggleMenuHandler = () => {
@@ -21,12 +23,5 @@ export default function Home() {
 		toggleMenuHandler,
 	};
 
-	return (
-		<Context.Provider value={contextValue}>
-			<div>
-				<Header />
-				<GamesOfTheYear />
-			</div>
-		</Context.Provider>
-	);
+	return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 }

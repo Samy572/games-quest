@@ -1,8 +1,9 @@
+'use client';
 import { Search } from 'lucide-react';
 import { Logo } from './logo';
-import { Input } from '../../ui/input';
-import { Label } from '../../ui/label';
 import { BurgerMenu } from './burgerMenu';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 const Header = () => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
