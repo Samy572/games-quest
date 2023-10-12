@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { clsx } from 'clsx';
 import ContextProvider from '@/context/ContextProvider';
-import { Header } from './Header/header';
-import { Home } from './Home/Home.tsx';
+import { Header } from './Header/Header';
+import { Home } from './Home/Home';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +20,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fr">
-			<body className={clsx(inter.className, 'bg-black text-slate-50')}>
+			<body
+				className={clsx(
+					inter.className,
+					'bg-black text-slate-50 overflow-x-hidden'
+				)}
+			>
 				<ContextProvider>
 					<Header />
 					<Home />

@@ -58,7 +58,9 @@ module.exports = {
 			},
 			background: {
 				black: '#09090b',
+				blackTransparent: '#202020',
 			},
+
 			keyframes: {
 				'accordion-down': {
 					from: { height: 0 },

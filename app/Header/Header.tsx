@@ -12,8 +12,8 @@ export const Header = () => {
 
 	return (
 		<header
-			className="  pt-5 flex items-center justify-around
-     transition-all lg:justify-center "
+			className="  w-full top-0 z-10  pt-5 flex items-center justify-around
+     transition-all lg:justify-center  "
 		>
 			{' '}
 			<Logo />
