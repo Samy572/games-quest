@@ -1,11 +1,11 @@
 'use client';
 import { Search } from 'lucide-react';
-import { Logo } from './logo';
-import { BurgerMenu } from './burgerMenu';
+import { Logo } from './Menu/Logo';
+import { BurgerMenu } from './Menu/BurgerMenu';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 
-const Header = () => {
+export const Header = () => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.value);
 	};
@@ -37,4 +37,3 @@ const Header = () => {
 		</header>
 	);
 };
-export default Header;

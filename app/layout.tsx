@@ -3,9 +3,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { clsx } from 'clsx';
 import ContextProvider from '@/context/ContextProvider';
-
-import { LeftMenu } from '@/app/LeftMenu/letfmenu';
-import Header from './Header/Menu/header';
+import { Header } from './Header/header';
+import { Home } from './Home/Home.tsx';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +23,7 @@ export default function RootLayout({
 			<body className={clsx(inter.className, 'bg-black text-slate-50')}>
 				<ContextProvider>
 					<Header />
-					<LeftMenu />
+					<Home />
 				</ContextProvider>
 			</body>
 		</html>
