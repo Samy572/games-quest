@@ -6,36 +6,11 @@ import Image from 'next/image';
 import { useContext, useState } from 'react';
 export const LeftMenu = () => {
 	const { urlHandler } = useContext(Context);
-	const [isClicked, setIsClicked] = useState([
-		{ url2023: true },
-		{ url2022: false },
-		{ url2021: false },
-	]);
+	const [selectedUrl, setSelectedUrl] = useState('url2023');
+
 	const handleClick = (url: string) => {
 		urlHandler(url);
-		switch (url) {
-			case 'url2023':
-				setIsClicked([
-					{ url2023: true },
-					{ url2022: false },
-					{ url2021: false },
-				]);
-				break;
-			case 'url2022':
-				setIsClicked([
-					{ url2023: false },
-					{ url2022: true },
-					{ url2021: false },
-				]);
-				break;
-			case 'url2021':
-				setIsClicked([
-					{ url2023: false },
-					{ url2022: false },
-					{ url2021: true },
-				]);
-				break;
-		}
+		setSelectedUrl(url);
 	};
 
 	return (
@@ -55,19 +30,19 @@ export const LeftMenu = () => {
 						Icon={<Trophy />}
 						onClick={() => handleClick('url2023')}
 						name="Top de l'année"
-						active={isClicked[0].url2023}
+						active={selectedUrl === 'url2023'}
 					/>
 					<List
 						Icon={<Flame />}
 						onClick={() => handleClick('url2022')}
 						name="Populaire en 2022"
-						active={isClicked[1].url2022}
+						active={selectedUrl === 'url2022'}
 					/>
 					<List
 						Icon={<Flame />}
 						onClick={() => handleClick('url2021')}
 						name="Populaire en 2021"
-						active={isClicked[2].url2021}
+						active={selectedUrl === 'url2021'}
 					/>
 				</ul>
 				<ul>
