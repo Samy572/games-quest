@@ -1,4 +1,4 @@
-import { Home } from 'lucide-react';
+import { Home } from "./Home/Home";
 
 const page = () => {
 	return (
