@@ -26,7 +26,16 @@ const FetchContent = () => {
 					className="bg-stone-900 border-stone-700 transition-all hover:bg-stone-800 hover:scale-110 "
 				>
 					<CardHeader>
-						<Image src={background_image} alt={name} loading="lazy" />
+						<Image
+							className="h-auto w-auto"
+							src={background_image}
+							alt={name}
+							width={300}
+							height={300}
+							objectFit="cover"
+							loading="lazy"
+							style={{ width: '100%', height: 'auto' }}
+						/>
 						<CardTitle
 							className="text-3xl text-gray-100 font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
 							title={name}
