@@ -14,7 +14,7 @@ export default function ContextProvider({
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const [url, setUrl] = useState(`${url2023}`);
 	const [data, setData] = useState([]);
-
+	console.log(data);
 	const toggleMenuHandler = () => {
 		setToggleMenu(!toggleMenu);
 	};

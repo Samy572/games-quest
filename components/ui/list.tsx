@@ -6,7 +6,7 @@ const List = ({
 	onClick,
 	active,
 }: {
-	name: string;
+	name?: string;
 	className?: string;
 	Icon?: JSX.Element;
 	onClick?: () => void;
@@ -22,7 +22,7 @@ const List = ({
 		>
 			<span
 				className={clsx(
-					'text-gray-200 inline-flex items-center transition-all px-4 py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
+					'text-gray-200 inline-flex items-center transition-all px-1  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
 					{ 'text-lime-300 bg-neutral-800': active }
 				)}
 			>
