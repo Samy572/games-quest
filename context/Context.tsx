@@ -5,4 +5,5 @@ export default createContext({
 	toggleMenuHandler: () => {},
 	url: '',
 	urlHandler: (url: string) => {},
+	data: [],
 });

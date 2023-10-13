@@ -6,20 +6,10 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import Context from '@/context/Context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 const FetchContent = () => {
-	const { url } = useContext(Context);
-
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		fetch(url)
-			.then((res) => res.json())
-			.then((data) => setData(data.results));
-	}, [url]);
-
-	console.log(data);
+	const { data } = useContext(Context);
 
 	return (
 		<div className="w-full grid md:grid-cols-2 lg:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 px-5 pt-10 transition-all ">
