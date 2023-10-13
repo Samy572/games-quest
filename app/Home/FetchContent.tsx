@@ -79,13 +79,9 @@ const FetchContent = () => {
 											<li key={genre.name}>{genre.name}</li>
 										))}
 									</div>
-									<div className="flex justify-center ">
+									<div className="flex  ">
 										{platforms.slice(0, 2).map(({ platform: { id, name } }) => (
-											<List
-												key={id}
-												Icon={displayIcon(name)}
-												className="p-0 m-0"
-											></List>
+											<List key={id} Icon={displayIcon(name)} platform={true} />
 										))}
 									</div>
 								</ul>

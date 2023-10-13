@@ -5,12 +5,14 @@ const List = ({
 	Icon,
 	onClick,
 	active,
+	platform,
 }: {
 	name?: string;
 	className?: string;
 	Icon?: JSX.Element;
 	onClick?: () => void;
 	active?: boolean;
+	platform?: boolean;
 }) => {
 	return (
 		<li
@@ -22,8 +24,9 @@ const List = ({
 		>
 			<span
 				className={clsx(
-					'text-gray-200 inline-flex items-center transition-all px-1  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
-					{ 'text-lime-300 bg-neutral-800': active }
+					'text-gray-200 inline-flex items-center transition-all px-4  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
+					{ 'text-lime-300 bg-neutral-800': active },
+					{ 'px-0': platform }
 				)}
 			>
 				{Icon && (
