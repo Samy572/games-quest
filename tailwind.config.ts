@@ -15,6 +15,10 @@ module.exports = {
 				'2xl': '1400px',
 			},
 		},
+		fontFamily: {
+			roboto: ['var(--font-roboto)'],
+			monstserrat: ['var(--font-montserrat)'],
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -58,7 +62,9 @@ module.exports = {
 			},
 			background: {
 				black: '#09090b',
+				blackTransparent: '#202020',
 			},
+
 			keyframes: {
 				'accordion-down': {
 					from: { height: 0 },

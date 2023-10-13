@@ -1,32 +1,10 @@
-'use client';
-import { GamesOfTheYear } from '@/components/GameOfTheYear/gameoftheyear';
-import Header from '@/components/Header/Menu/header';
-import Context from '@/context/Context';
-import { useState } from 'react';
+import { Home } from "./Home/Home";
 
-export default function Home() {
-	const [toggleMenu, setToggleMenu] = useState(false);
-
-	const toggleMenuHandler = () => {
-		setToggleMenu(!toggleMenu);
-	};
-
-	interface MyContextType {
-		toggleMenu: boolean;
-		toggleMenuHandler: () => void;
-	}
-
-	const contextValue: MyContextType = {
-		toggleMenu,
-		toggleMenuHandler,
-	};
-
+const page = () => {
 	return (
-		<Context.Provider value={contextValue}>
-			<div>
-				<Header />
-				<GamesOfTheYear />
-			</div>
-		</Context.Provider>
+		<div>
+			<Home />
+		</div>
 	);
-}
+};
+export default page;

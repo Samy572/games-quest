@@ -7,7 +7,7 @@ export const BurgerMenu = () => {
 	const { toggleMenu, toggleMenuHandler } = useContext(Context);
 
 	return (
-		<div className="cursor-pointer  lg:hidden flex ">
+		<div className="cursor-pointer  lg:hidden flex  ">
 			{toggleMenu === false ? (
 				<Button
 					onClick={() => toggleMenuHandler()}

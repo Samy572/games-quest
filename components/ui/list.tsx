@@ -1,29 +1,38 @@
 import clsx from 'clsx';
-import Link from 'next/link';
 const List = ({
-	path,
 	name,
 	className,
 	Icon,
+	onClick,
+	active,
 }: {
-	path: string;
 	name: string;
 	className?: string;
 	Icon?: JSX.Element;
+	onClick?: () => void;
+	active?: boolean;
 }) => {
 	return (
-		<li className={clsx(className, (className = 'py-2 text-md  flex  '))}>
-			<Link
-				href={path}
-				className="text-gray-200 inline-flex items-center transition-all px-4 py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 "
+		<li
+			onClick={onClick}
+			className={clsx(
+				className,
+				(className = 'py-2 text-md  flex cursor-pointer ')
+			)}
+		>
+			<span
+				className={clsx(
+					'text-gray-200 inline-flex items-center transition-all px-4 py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
+					{ 'text-lime-300 bg-neutral-800': active }
+				)}
 			>
 				{Icon && (
-					<div className="icon  mr-2 border rounded-full p-2 bg-white text-black ">
+					<span className="icon  mr-2 border rounded-full p-2 bg-white text-black ">
 						{Icon && Icon}
-					</div>
+					</span>
 				)}
 				{name}
-			</Link>
+			</span>
 		</li>
 	);
 };

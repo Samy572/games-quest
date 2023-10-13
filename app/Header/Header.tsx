@@ -1,18 +1,19 @@
+'use client';
 import { Search } from 'lucide-react';
-import { Logo } from './logo';
-import { Input } from '../../ui/input';
-import { Label } from '../../ui/label';
-import { BurgerMenu } from './burgerMenu';
+import { BurgerMenu } from './Menu/BurgerMenu';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Logo } from './Menu/Logo';
 
-const Header = () => {
+export const Header = () => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.value);
 	};
 
 	return (
 		<header
-			className="  pt-5 flex items-center justify-around
-     transition-all lg:justify-center "
+			className="  w-full top-0 z-10  pt-5 flex items-center justify-around
+     transition-all lg:justify-center  "
 		>
 			{' '}
 			<Logo />
@@ -29,11 +30,10 @@ const Header = () => {
         "
 					type="text"
 					placeholder="Rechercher un jeu"
-					onChange={handleChange}
+					onChange={(e) => handleChange(e)}
 				/>
 			</div>
 			<BurgerMenu />
 		</header>
 	);
 };
-export default Header;
