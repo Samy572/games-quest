@@ -30,13 +30,11 @@ const FetchContent = () => {
 				>
 					<CardHeader>
 						<img src={background_image} alt={name} loading="lazy" />
-						<CardTitle className="text-3xl text-gray-100 ">
-							<h2
-								className="font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px]"
-								title={name}
-							>
-								{name}
-							</h2>
+						<CardTitle
+							className="text-3xl text-gray-100 font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
+							title={name}
+						>
+							{name}
 						</CardTitle>
 						<CardDescription>
 							<h3 className="text-xl text-gray-200 ">

@@ -1,5 +1,5 @@
 'use client';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import Context from '@/context/Context';
 
 export default function ContextProvider({
@@ -26,7 +26,7 @@ export default function ContextProvider({
 			case 'url2022':
 				setUrl(url2022);
 				break;
-			case 'url2023':
+			case 'url2021':
 				setUrl(url2021);
 				break;
 
