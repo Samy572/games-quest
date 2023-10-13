@@ -15,6 +15,10 @@ module.exports = {
 				'2xl': '1400px',
 			},
 		},
+		fontFamily: {
+			roboto: ['var(--font-roboto)'],
+			monstserrat: ['var(--font-montserrat)'],
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
