@@ -10,10 +10,16 @@ import { useContext } from 'react';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
+	interface GameCardType {
+		name: string;
+		background_image: string;
+		genres: [];
+		id: number;
+	}
 
 	return (
 		<div className="w-full grid md:grid-cols-2 lg:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 px-5 pt-10 transition-all ">
-			{data.map(({ name, background_image, genres, id }) => (
+			{data.map(({ name, background_image, genres, id }: GameCardType) => (
 				<Card
 					key={id}
 					className="bg-stone-900 border-stone-700 transition-all hover:bg-stone-800 hover:scale-110 "
@@ -30,7 +36,7 @@ const FetchContent = () => {
 							<h3 className="text-xl text-gray-200 ">
 								<strong>Genres:</strong>
 							</h3>
-							{genres.slice(0, 2).map((genre) => (
+							{genres.slice(0, 2).map((genre: { name: string }) => (
 								<ul key={genre.name} className="space-y-6">
 									<li>{genre.name}</li>
 								</ul>
