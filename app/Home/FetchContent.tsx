@@ -6,6 +6,7 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import Context from '@/context/Context';
+import Image from 'next/image';
 import { useContext } from 'react';
 
 const FetchContent = () => {
@@ -25,7 +26,7 @@ const FetchContent = () => {
 					className="bg-stone-900 border-stone-700 transition-all hover:bg-stone-800 hover:scale-110 "
 				>
 					<CardHeader>
-						<img src={background_image} alt={name} loading="lazy" />
+						<Image src={background_image} alt={name} loading="lazy" />
 						<CardTitle
 							className="text-3xl text-gray-100 font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
 							title={name}
