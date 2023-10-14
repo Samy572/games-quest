@@ -1,14 +1,23 @@
+import Image from "next/image";
+
 const SearchList = ({
-	children,
 	name,
+	background_image,
 }: {
 	children?: React.ReactNode;
 	name: string;
+	background_image: string;
 }) => {
 	return (
-		<div className=" p-[2px] hover:bg-white select-none px-3">
-			{name}
-			{children}
+		<div className=" flex items-center p-[2px] py-2 hover:bg-white select-none px-3 ">
+			<Image
+				className="mr-2"
+				src={background_image}
+				alt={name}
+				width={50}
+				height={50}
+			/>
+			<p>{name}</p>
 		</div>
 	);
 };
