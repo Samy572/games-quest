@@ -30,9 +30,9 @@ const List = ({
 				)}
 			>
 				{Icon && (
-					<span className="icon  mr-2 border rounded-full p-2 bg-white text-black ">
+					<div className="icon  mr-2 border rounded-full p-2 bg-white text-black ">
 						{Icon && Icon}
-					</span>
+					</div>
 				)}
 				{name}
 			</span>

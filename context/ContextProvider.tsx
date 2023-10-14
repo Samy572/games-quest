@@ -1,24 +1,34 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Context from '@/context/Context';
+import { MyContextType } from '@/src/types/context';
 
 export default function ContextProvider({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const [toggleMenu, setToggleMenu] = useState(false);
+	const [data, setData] = useState([]);
+	const [inputValue, setInputValue] = useState('');
+	const [dataSearchInput, setDataSearchInput] = useState([]);
 	const APIKEY = process.env.SECRET;
+
 	const url2023 = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2023-01-01,2023-12-31&ordering=-added`;
 	const url2022 = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2022-01-01,2022-12-31&ordering=-added`;
 	const url2021 = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2021-01-01,2021-12-31&ordering=-added`;
-	const [toggleMenu, setToggleMenu] = useState(false);
+	const searchGames = `https://api.rawg.io/api/games?key=${APIKEY}&search=${inputValue}`;
 	const [url, setUrl] = useState(`${url2023}`);
-	const [data, setData] = useState([]);
-	console.log(data);
+
 	const toggleMenuHandler = () => {
 		setToggleMenu(!toggleMenu);
 	};
 
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setInputValue(e.target.value);
+		console.log(e);
+	};
+	// Fetch data from API
 	useEffect(() => {
 		async function fetchData() {
 			try {
@@ -34,7 +44,7 @@ export default function ContextProvider({
 		}
 		fetchData();
 	}, [url]);
-
+	// Display the game according to the URL
 	const urlHandler = (url: string) => {
 		switch (url) {
 			case 'url2023':
@@ -52,14 +62,31 @@ export default function ContextProvider({
 				break;
 		}
 	};
+	// Search game with input
+	useEffect(() => {
+		if (inputValue === '') {
+			setDataSearchInput([]);
+			return;
+		}
+		const fetchGames = async () => {
+			try {
+				const response = await fetch(searchGames);
+				const data = await response.json();
+				console.log(data);
+				setDataSearchInput(data.results);
+			} catch (error) {
+				console.error('error :', error);
+			}
+		};
 
-	interface MyContextType {
-		toggleMenu: boolean;
-		toggleMenuHandler: () => void;
-		url: string;
-		urlHandler: (url: string) => void;
-		data: any;
-	}
+		fetchGames();
+	}, [inputValue, searchGames]);
+
+	// Reset input
+	const resetInput = () => {
+		setInputValue('');
+		setDataSearchInput([]);
+	};
 
 	const contextValue: MyContextType = {
 		toggleMenu,
@@ -67,6 +94,11 @@ export default function ContextProvider({
 		url,
 		urlHandler,
 		data,
+		inputValue,
+		setInputValue,
+		dataSearchInput,
+		resetInput,
+		handleChange,
 	};
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;
