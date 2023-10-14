@@ -9,7 +9,7 @@ const List = ({
 }: {
 	name?: string;
 	className?: string;
-	Icon?: JSX.Element;
+	Icon: JSX.Element | undefined;
 	onClick?: () => void;
 	active?: boolean;
 	platform?: boolean;
@@ -26,7 +26,7 @@ const List = ({
 				className={clsx(
 					'text-gray-200 inline-flex items-center transition-all px-4  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
 					{ 'text-lime-300 bg-neutral-800': active },
-					{ 'px-0': platform }
+					{ 'px-[0px]': platform }
 				)}
 			>
 				{Icon && (

@@ -74,12 +74,12 @@ const FetchContent = () => {
 									<strong>Genres:</strong>
 								</h3>
 								<ul className="py-3 flex justify-between ">
-									<div>
+									<div className="text-gray-200">
 										{genres.slice(0, 2).map((genre: { name: string }) => (
 											<li key={genre.name}>{genre.name}</li>
 										))}
 									</div>
-									<div className="flex  ">
+									<div className="flex ">
 										{platforms.slice(0, 2).map(({ platform: { id, name } }) => (
 											<List key={id} Icon={displayIcon(name)} platform={true} />
 										))}

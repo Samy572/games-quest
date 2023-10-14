@@ -1,11 +1,13 @@
 type titleProps = {
 	title: string;
 };
-const title = ({ title }: titleProps) => {
+const Title = ({ title }: titleProps) => {
 	return (
-		<div>
-			<h2 className="text-4xl font-semibold font-monstserrat">{title}</h2>
+		<div className="relative">
+			<h2 className="text-4xl font-semibold font-monstserrat md:absolute md:left-[350px]  absolute left-2 top-10">
+				{title}
+			</h2>
 		</div>
 	);
 };
-export default title;
+export default Title;
