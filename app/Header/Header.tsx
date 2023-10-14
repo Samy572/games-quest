@@ -7,6 +7,7 @@ import { Logo } from './Menu/Logo';
 import { useContext } from 'react';
 import SearchList from '@/components/searchlist';
 import Context from '@/context/Context';
+import Image from 'next/image';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =
@@ -34,6 +35,7 @@ export const Header = () => {
 					placeholder="Rechercher un jeu"
 					onChange={(e) => handleChange(e)}
 					value={inputValue}
+					onBlur={() => resetInput()}
 				/>
 				{dataSearchInput.length > 0 && (
 					<button
@@ -63,7 +65,7 @@ export const Header = () => {
 									key={id}
 									name={name}
 									background_image={background_image}
-								></SearchList>
+								/>
 							)
 						)}
 				</div>
