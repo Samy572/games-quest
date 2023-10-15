@@ -14,8 +14,8 @@ export const LeftMenu = () => {
 	};
 
 	return (
-		<nav className="text-gray-200  flex-col  pt-16 w-fit transition-all hidden lg:flex pl-10  ">
-			<div className="navigation fixed">
+		<nav className="text-gray-200  flex-col  pt-16 w-fit transition-all hidden lg:flex pl-10 select-none ">
+			<div className="navigation fixed top-28">
 				<ul className="">
 					<h2 className="text-2xl pb-14">
 						{' '}
