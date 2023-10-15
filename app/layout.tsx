@@ -1,10 +1,8 @@
-import './globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Roboto, Montserrat } from 'next/font/google';
 import { clsx } from 'clsx';
 import ContextProvider from '@/context/ContextProvider';
-import { Header } from './Header/Header';
-import { Home } from './Home/Home';
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -37,10 +35,7 @@ export default function RootLayout({
 					'bg-black text-slate-50 overflow-x-hidden'
 				)}
 			>
-				<ContextProvider>
-					<Header />
-					<Home />
-				</ContextProvider>
+				<ContextProvider>{children}</ContextProvider>
 			</body>
 		</html>
 	);

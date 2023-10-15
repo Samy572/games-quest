@@ -1,6 +1,6 @@
 'use client';
-import List from '@/components/ui/list';
-import Context from '@/context/Context';
+import List from '../../../src/components/ui/list';
+import Context from '../../../context/Context';
 import { Flame, Trophy } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useState } from 'react';

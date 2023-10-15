@@ -1,13 +1,12 @@
 'use client';
 import { Search, X } from 'lucide-react';
-import { BurgerMenu } from './Menu/BurgerMenu';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Logo } from './Menu/Logo';
+import { BurgerMenu } from '../Menu/BurgerMenu';
+import { Label } from '../../../src/components/ui/label';
+import { Input } from '../../../src/components/ui/input';
+import { Logo } from '../Menu/Logo';
 import { useContext } from 'react';
-import SearchList from '@/components/searchlist';
+import SearchList from '../../../src/components/searchlist';
 import Context from '@/context/Context';
-import Image from 'next/image';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =

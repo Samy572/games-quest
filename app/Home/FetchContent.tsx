@@ -2,12 +2,14 @@
 import {
 	Card,
 	CardDescription,
+	CardFooter,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card';
-import List from '@/components/ui/list';
-import Context from '@/context/Context';
+} from '../../src/components/ui/card';
+import List from '../../src/components/ui/list';
+import Context from '../../context/Context';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useContext } from 'react';
 
 const FetchContent = () => {
@@ -73,7 +75,7 @@ const FetchContent = () => {
 								<h3 className="text-xl text-gray-200 ">
 									<strong>Genres:</strong>
 								</h3>
-								<ul className="py-3 flex justify-between ">
+								<ul className=" flex justify-between ">
 									<div className="text-gray-200">
 										{genres.slice(0, 2).map((genre: { name: string }) => (
 											<li key={genre.name}>{genre.name}</li>
@@ -87,6 +89,14 @@ const FetchContent = () => {
 								</ul>
 							</CardDescription>
 						</CardHeader>
+						<CardFooter>
+							<Link
+								href={`/game/${id}/${name}`}
+								className="text-lime-300  underline"
+							>
+								Voir plus
+							</Link>
+						</CardFooter>
 					</Card>
 				)
 			)}
