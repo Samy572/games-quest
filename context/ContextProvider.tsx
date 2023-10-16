@@ -19,7 +19,7 @@ export default function ContextProvider({
 	const url2021 = `https://api.rawg.io/api/games?page_size=18&key=${APIKEY}&dates=2021-01-01,2021-12-31&ordering=-added`;
 	const searchGames = `https://api.rawg.io/api/games?key=${APIKEY}&search=${inputValue}`;
 
-	const urlByplatform = `https://api.rawg.io/api/games?key=${APIKEY}&platforms=${plaformValue}&page_size=18`;
+	// const urlByplatform = `https://api.rawg.io/api/games?key=${APIKEY}&platforms=${plaformValue}&page_size=18`;
 	const [url, setUrl] = useState(`${url2023}`);
 	const toggleMenuHandler = () => {
 		setToggleMenu(!toggleMenu);
