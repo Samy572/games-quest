@@ -56,7 +56,7 @@ export const LeftMenu = () => {
 						<strong>Plateforms</strong>
 					</h2>
 					<List
-						onClick={() => displaygameByPlatform()}
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image
 								src={'/img/microsoft.svg'}
@@ -68,14 +68,14 @@ export const LeftMenu = () => {
 						name="PC"
 					/>
 					<List
-						onClick={() => displaygameByPlatform()}
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image src={'/img/ps5.svg'} alt="PC" width={22} height={22} />
 						}
 						name="Playstation"
 					/>
 					<List
-						onClick={() => displaygameByPlatform()}
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image src={'/img/xbox.svg'} alt="PC" width={22} height={22} />
 						}
