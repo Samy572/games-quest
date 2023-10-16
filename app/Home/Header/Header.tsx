@@ -3,7 +3,7 @@ import { Search, X } from 'lucide-react';
 import { BurgerMenu } from '../Menu/BurgerMenu';
 import { Label } from '../../../src/components/ui/label';
 import { Input } from '../../../src/components/ui/input';
-import { Logo } from '../Menu/Logo';
+import { Logo } from '../../../src/components/Logo';
 import { useContext } from 'react';
 import SearchList from '../../../src/components/searchlist';
 import Context from '@/context/Context';
@@ -31,7 +31,7 @@ export const Header = () => {
 					className="  bg-slate-300 rounded-2xl text-black  px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white   
         "
 					type="text"
-					placeholder="Rechercher un jeu"
+					placeholder="Search game"
 					onChange={(e) => handleChange(e)}
 					value={inputValue}
 					onBlur={() => resetInput()}
