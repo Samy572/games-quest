@@ -11,16 +11,16 @@ export default function Home() {
 
 	const title = (url: string) => {
 		const yearToTitleMap: { [key: string]: string } = {
-			'2023': "Top de l'année.",
-			'2022': 'Populaire en 2022.',
-			'2021': 'Populaire en 2021.',
+			'2023': 'Top of the year.',
+			'2022': 'Popular in 2022.',
+			'2021': 'Popular in 2021.',
 		};
 
 		const matchedYear = Object.keys(yearToTitleMap).find((year) =>
 			url.includes(year)
 		);
 
-		return matchedYear ? yearToTitleMap[matchedYear] : "Top de l'année";
+		return matchedYear ? yearToTitleMap[matchedYear] : 'Top of the year';
 	};
 	return (
 		<>

@@ -18,6 +18,8 @@ export default function ContextProvider({
 	const url2022 = `https://api.rawg.io/api/games?page_size=18&key=${APIKEY}&dates=2022-01-01,2022-12-31&ordering=-added`;
 	const url2021 = `https://api.rawg.io/api/games?page_size=18&key=${APIKEY}&dates=2021-01-01,2021-12-31&ordering=-added`;
 	const searchGames = `https://api.rawg.io/api/games?key=${APIKEY}&search=${inputValue}`;
+
+	const urlByplatform = `https://api.rawg.io/api/games?key=${APIKEY}&platforms=${plaformValue}&page_size=18`;
 	const [url, setUrl] = useState(`${url2023}`);
 	const toggleMenuHandler = () => {
 		setToggleMenu(!toggleMenu);
@@ -36,6 +38,7 @@ export default function ContextProvider({
 					throw new Error('Réponse du serveur non valide');
 				}
 				const data = await response.json();
+				console.log(data.results);
 				setData(data.results);
 			} catch (error) {
 				console.error('Erreur lors de la récupération des données :', error);
@@ -102,3 +105,7 @@ export default function ContextProvider({
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 }
+
+// PC = 4
+// PS5 = 187
+// XBOX serie s = 186
