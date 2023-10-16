@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 const List = ({
 	name,
 	className,
@@ -22,7 +23,8 @@ const List = ({
 				(className = 'py-2 text-md  flex cursor-pointer ')
 			)}
 		>
-			<span
+			<Link
+				href={'/'}
 				className={clsx(
 					'text-gray-200 inline-flex items-center transition-all px-4  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
 					{ 'text-lime-300 bg-neutral-800': active },
@@ -35,7 +37,7 @@ const List = ({
 					</div>
 				)}
 				{name}
-			</span>
+			</Link>
 		</li>
 	);
 };

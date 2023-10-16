@@ -5,6 +5,8 @@ import { Flame, Trophy } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { redirect } from 'next/dist/server/api-utils';
 export const LeftMenu = () => {
 	const { urlHandler } = useContext(Context);
 	const [selectedUrl, setSelectedUrl] = useState('url2023');

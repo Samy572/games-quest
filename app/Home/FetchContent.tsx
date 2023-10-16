@@ -9,8 +9,8 @@ import {
 import List from '../../src/components/ui/list';
 import Context from '../../context/Context';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useContext } from 'react';
+import Link from 'next/link';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
@@ -90,11 +90,8 @@ const FetchContent = () => {
 							</CardDescription>
 						</CardHeader>
 						<CardFooter>
-							<Link
-								href={`/game/${id}/${name}`}
-								className="text-lime-300  underline"
-							>
-								Voir plus
+							<Link href={`/game/${id}`} className="text-lime-300  underline">
+								See more
 							</Link>
 						</CardFooter>
 					</Card>
