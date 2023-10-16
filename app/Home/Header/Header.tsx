@@ -1,13 +1,12 @@
 'use client';
 import { Search, X } from 'lucide-react';
-import { BurgerMenu } from './Menu/BurgerMenu';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Logo } from './Menu/Logo';
+import { BurgerMenu } from '../Menu/BurgerMenu';
+import { Label } from '../../../src/components/ui/label';
+import { Input } from '../../../src/components/ui/input';
+import { Logo } from '../../../src/components/Logo';
 import { useContext } from 'react';
-import SearchList from '@/components/searchlist';
+import SearchList from '../../../src/components/searchlist';
 import Context from '@/context/Context';
-import Image from 'next/image';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =
@@ -32,10 +31,9 @@ export const Header = () => {
 					className="  bg-slate-300 rounded-2xl text-black  px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white   
         "
 					type="text"
-					placeholder="Rechercher un jeu"
+					placeholder="Search game"
 					onChange={(e) => handleChange(e)}
 					value={inputValue}
-					onBlur={() => resetInput()}
 				/>
 				{dataSearchInput.length > 0 && (
 					<button
@@ -48,7 +46,10 @@ export const Header = () => {
 				)}
 			</div>
 			{dataSearchInput.length > 0 ? (
-				<div className="flex flex-col z-30 absolute top-16	-10 right-auto border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md">
+				<div
+					onMouseLeave={() => resetInput()}
+					className="flex flex-col z-30 absolute top-16	-10 right-auto border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md"
+				>
 					{dataSearchInput
 						.slice(0, 10)
 						.map(
@@ -63,6 +64,7 @@ export const Header = () => {
 							}) => (
 								<SearchList
 									key={id}
+									id={id}
 									name={name}
 									background_image={background_image}
 								/>

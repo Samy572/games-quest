@@ -1,9 +1,11 @@
 'use client';
-import List from '@/components/ui/list';
-import Context from '@/context/Context';
+import List from '../../../src/components/ui/list';
+import Context from '../../../context/Context';
 import { Flame, Trophy } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useState } from 'react';
+import Link from 'next/link';
+
 export const LeftMenu = () => {
 	const { urlHandler } = useContext(Context);
 	const [selectedUrl, setSelectedUrl] = useState('url2023');
@@ -19,7 +21,10 @@ export const LeftMenu = () => {
 				<ul className="">
 					<h2 className="text-2xl pb-14">
 						{' '}
-						<strong>Accueil</strong>
+						<Link href={'/'}>
+							{' '}
+							<strong>Home</strong>
+						</Link>
 					</h2>
 				</ul>
 				<ul>
@@ -29,27 +34,28 @@ export const LeftMenu = () => {
 					<List
 						Icon={<Trophy />}
 						onClick={() => handleClick('url2023')}
-						name="Top de l'année"
+						name="Top of the year"
 						active={selectedUrl === 'url2023'}
 					/>
 					<List
 						Icon={<Flame />}
 						onClick={() => handleClick('url2022')}
-						name="Populaire en 2022"
+						name="Popular in 2022"
 						active={selectedUrl === 'url2022'}
 					/>
 					<List
 						Icon={<Flame />}
 						onClick={() => handleClick('url2021')}
-						name="Populaire en 2021"
+						name="Popular in 2021"
 						active={selectedUrl === 'url2021'}
 					/>
 				</ul>
 				<ul>
 					<h2 className="text-xl py-5">
-						<strong>Plateformes</strong>
+						<strong>Plateforms</strong>
 					</h2>
 					<List
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image
 								src={'/img/microsoft.svg'}
@@ -61,12 +67,14 @@ export const LeftMenu = () => {
 						name="PC"
 					/>
 					<List
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image src={'/img/ps5.svg'} alt="PC" width={22} height={22} />
 						}
 						name="Playstation"
 					/>
 					<List
+						// onClick={() => displaygameByPlatform()}
 						Icon={
 							<Image src={'/img/xbox.svg'} alt="PC" width={22} height={22} />
 						}

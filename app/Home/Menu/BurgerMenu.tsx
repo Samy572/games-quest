@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../../src/components/ui/button';
 import Context from '@/context/Context';
 import { Menu, X } from 'lucide-react';
 import { useContext } from 'react';
