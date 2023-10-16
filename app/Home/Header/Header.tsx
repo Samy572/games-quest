@@ -34,7 +34,6 @@ export const Header = () => {
 					placeholder="Search game"
 					onChange={(e) => handleChange(e)}
 					value={inputValue}
-					onBlur={() => resetInput()}
 				/>
 				{dataSearchInput.length > 0 && (
 					<button
@@ -47,7 +46,10 @@ export const Header = () => {
 				)}
 			</div>
 			{dataSearchInput.length > 0 ? (
-				<div className="flex flex-col z-30 absolute top-16	-10 right-auto border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md">
+				<div
+					onMouseLeave={() => resetInput()}
+					className="flex flex-col z-30 absolute top-16	-10 right-auto border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md"
+				>
 					{dataSearchInput
 						.slice(0, 10)
 						.map(
@@ -62,6 +64,7 @@ export const Header = () => {
 							}) => (
 								<SearchList
 									key={id}
+									id={id}
 									name={name}
 									background_image={background_image}
 								/>
