@@ -22,10 +22,6 @@ export default function ContextProvider({
 		`${baseApiUrl}${defaultUrlParams}&dates=2023-01-01,2023-12-31`
 	);
 
-	const toggleMenuHandler = () => {
-		setToggleMenu(!toggleMenu);
-	};
-
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
 		console.log(e);
