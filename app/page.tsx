@@ -25,11 +25,13 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<Title title={title(url)} />
-			<div className=" h-[calc(100vh-55.99px)] w-full grid lg:grid-cols-[320px_minmax(1024px,_1fr)_100px] grid-cols-1 pt-14 ">
-				<LeftMenu />
+
+			<LeftMenu />
+			<main className=" mt-16 w-[calc(100vw)-320px] lg:ml-[290px] grid-cols-1  mx-auto">
+				<Title title={title(url)} />
 				<FetchContent />
-			</div>
+			</main>
 		</>
 	);
 }
+// h-[calc(100vh-55.99px)] w-full grid lg:grid-cols-[320px_minmax(1024px,_1fr)_100px] grid-cols-1 pt-14

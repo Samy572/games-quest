@@ -47,7 +47,7 @@ const FetchContent = () => {
 	};
 
 	return (
-		<div className="w-full grid md:grid-cols-2 lg:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 px-5 pt-10 transition-all ">
+		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
 			{data.map(
 				({ name, background_image, genres, platforms, id }: GameCardType) => (
 					<Card
