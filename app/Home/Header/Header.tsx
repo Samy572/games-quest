@@ -1,6 +1,5 @@
 'use client';
 import { Search, X } from 'lucide-react';
-import { BurgerMenu } from '../Menu/BurgerMenu';
 import { Label } from '../../../src/components/ui/label';
 import { Input } from '../../../src/components/ui/input';
 import { Logo } from '../../../src/components/Logo';
@@ -72,7 +71,6 @@ export const Header = () => {
 						)}
 				</div>
 			) : null}
-			<BurgerMenu />
 		</header>
 	);
 };

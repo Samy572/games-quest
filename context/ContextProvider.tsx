@@ -8,7 +8,6 @@ export default function ContextProvider({
 }: {
 	children: React.ReactNode;
 }) {
-	const [toggleMenu, setToggleMenu] = useState(false);
 	const [data, setData] = useState([]);
 	const [inputValue, setInputValue] = useState('');
 	const [dataSearchInput, setDataSearchInput] = useState([]);
@@ -77,8 +76,6 @@ export default function ContextProvider({
 	};
 
 	const contextValue: MyContextType = {
-		toggleMenu,
-		toggleMenuHandler,
 		url,
 		urlHandler,
 		data,
