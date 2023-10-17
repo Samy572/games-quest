@@ -1,6 +1,7 @@
 'use client';
 import { LeftMenu } from '@/app/Home/LeftMenu/LeftMenu';
 import { Logo } from '@/src/components/Logo';
+import { Navmenu } from '@/src/components/navmenu';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
 import Image from 'next/image';
@@ -40,7 +41,7 @@ function Game({ params }: { params: { id: number } }) {
 	}, [urlGameSelected]);
 
 	return (
-		<div className="px-4 select-none ">
+		<div className="px-4 select-none pb-12 ">
 			<Logo className="pt-5" />
 			<LeftMenu />
 			{selectedGameData && (
@@ -51,9 +52,8 @@ function Game({ params }: { params: { id: number } }) {
 							alt={selectedGameData.name}
 							width={500}
 							height={500}
+							quality={65}
 							priority={false}
-							quality={70}
-							loading="lazy"
 							className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md"
 						/>
 						<div className="text-left py-5 text-4xl">
@@ -109,6 +109,7 @@ function Game({ params }: { params: { id: number } }) {
 					</div>
 				</div>
 			)}
+			<Navmenu />
 		</div>
 	);
 }
