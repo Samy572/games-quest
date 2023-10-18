@@ -6,22 +6,15 @@ import {
 	CardHeader,
 	CardTitle,
 } from '../../src/components/ui/card';
-import List from '../../src/components/ui/list';
 import Context from '../../context/Context';
 import Image from 'next/image';
 import { useContext } from 'react';
 import Link from 'next/link';
-import { displayIcon } from '../../utils/DisplayIcon';
+import Displayplatforms from '@/src/components/displayplatforms';
+import { GameCardType } from '@/src/types/game';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
-	interface GameCardType {
-		name: string;
-		background_image: string;
-		genres: [];
-		platforms: [];
-		id: number;
-	}
 
 	return (
 		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
@@ -58,11 +51,7 @@ const FetchContent = () => {
 											<li key={genre.name}>{genre.name}</li>
 										))}
 									</div>
-									<div className="flex ">
-										{platforms.slice(0, 2).map(({ platform: { id, name } }) => (
-											<List key={id} Icon={displayIcon(name)} platform={true} />
-										))}
-									</div>
+									<Displayplatforms platforms={platforms} img="img" />
 								</ul>
 							</CardDescription>
 						</CardHeader>
