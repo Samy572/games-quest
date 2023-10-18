@@ -32,7 +32,7 @@ export const LeftMenu = () => {
 				<ul className="">
 					<h2 className="text-2xl pb-14">
 						{' '}
-						<Link href={'/'}>
+						<Link href={'/home'}>
 							{' '}
 							<strong>Home</strong>
 						</Link>

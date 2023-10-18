@@ -61,8 +61,8 @@ const FetchContent = () => {
 								alt={name}
 								width={300}
 								height={300}
-								objectFit="cover"
-								loading="lazy"
+								quality={65}
+								priority={false}
 								style={{ width: '100%', height: 'auto' }}
 							/>
 							<CardTitle

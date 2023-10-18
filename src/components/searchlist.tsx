@@ -13,7 +13,7 @@ const SearchList = ({
 	id: number;
 }) => {
 	return (
-		<div className="flex items-center p-[2px] py-2 hover:bg-white select-none px-3">
+		<div className="flex items-center p-[2px] py-2 hover:bg-white select-none px-3 ">
 			{background_image && (
 				<div>
 					<Image

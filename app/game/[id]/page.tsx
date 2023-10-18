@@ -41,7 +41,7 @@ function Game({ params }: { params: { id: number } }) {
 	}, [urlGameSelected]);
 
 	return (
-		<div className="px-4 select-none pb-12 ">
+		<div className="px-4 select-none pb-14 ">
 			<Logo className="pt-5" />
 			<LeftMenu />
 			{selectedGameData && (
