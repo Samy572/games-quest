@@ -62,6 +62,10 @@ export const Header = () => {
 									background_image: string;
 								}) => (
 									<SearchList
+										onClick={() => resetInput()}
+										className={
+											'flex items-center p-[2px] py-2 hover:bg-white select-none px-3 '
+										}
 										key={id}
 										id={id}
 										name={name}

@@ -33,6 +33,7 @@ function Game({ params }: { params: { id: number } }) {
 				const response = await fetch(urlGameSelected);
 				const data = await response.json();
 				setSelectedGameData(data);
+				console.log('data :', data);
 			} catch (error) {
 				console.error('error :', error);
 			}
@@ -76,7 +77,8 @@ function Game({ params }: { params: { id: number } }) {
 							</div>
 						</div>
 						<div className=" py-5 text-slate-400">
-							{isShowMore === false ? (
+							{isShowMore === false &&
+							selectedGameData.description_raw.length > 200 ? (
 								<p>
 									{selectedGameData.description_raw
 										.split('')
@@ -97,13 +99,15 @@ function Game({ params }: { params: { id: number } }) {
 									show less
 								</Button>
 							) : (
-								<Button
-									variant={'outline'}
-									className="mt-5"
-									onClick={() => setIsShowMore(!isShowMore)}
-								>
-									show more
-								</Button>
+								selectedGameData.description_raw.length > 200 && (
+									<Button
+										variant={'outline'}
+										className="mt-5"
+										onClick={() => setIsShowMore(!isShowMore)}
+									>
+										show more
+									</Button>
+								)
 							)}
 						</div>
 					</div>
