@@ -11,6 +11,7 @@ import Context from '../../context/Context';
 import Image from 'next/image';
 import { useContext } from 'react';
 import Link from 'next/link';
+import { displayIcon } from './LeftMenu/DisplayIcon';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
@@ -21,30 +22,6 @@ const FetchContent = () => {
 		platforms: [];
 		id: number;
 	}
-
-	const displayIcon = (name: string) => {
-		switch (name) {
-			case 'PC':
-				return (
-					<Image
-						src="img/microsoft.svg"
-						alt="pc"
-						width={18}
-						height={18}
-						className="p-0"
-					/>
-				);
-			case 'PlayStation':
-			case 'PlayStation 5':
-			case 'PlayStation 4':
-				return (
-					<Image src="img/ps5.svg" alt="playstation" width={18} height={18} />
-				);
-			case 'Xbox':
-			case 'Xbox Series S/X':
-				return <Image src="img/xbox.svg" alt="xbox" width={18} height={18} />;
-		}
-	};
 
 	return (
 		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
