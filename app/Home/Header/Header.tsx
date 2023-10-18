@@ -45,7 +45,13 @@ export const Header = () => {
 				)}
 
 				{dataSearchInput.length > 0 ? (
-					<DataListMap data={dataSearchInput} reset={resetInput} />
+					<DataListMap
+						data={dataSearchInput}
+						reset={resetInput}
+						className={
+							'flex flex-col z-30 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md'
+						}
+					/>
 				) : null}
 			</div>
 		</header>

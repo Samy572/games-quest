@@ -1,9 +1,9 @@
 'use client';
 import Context from '@/context/Context';
-import SearchList from '../../src/components/searchlist';
 import { Input } from '@/src/components/ui/input';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import DataListMap from '@/src/components/datalistmap';
 import { useContext } from 'react';
 
 function Page() {
@@ -12,7 +12,7 @@ function Page() {
 	return (
 		<div className="relative bg-zinc-900">
 			<div className="contain flex h-12 justify-center items-center gap-1">
-				<Link href={'/home'}>
+				<Link onClick={() => resetInput()} href={'/home'}>
 					<ArrowLeft size={20} />
 				</Link>
 				<Input
@@ -24,32 +24,17 @@ function Page() {
 			</div>
 
 			{dataSearchInput.length > 0 ? (
-				<div
-					onClick={() => resetInput()}
-					className="flex flex-col z-30  w-full mx-auto   bg-zinc-900 rounded-lg text-black    shadow-md"
-				>
-					{dataSearchInput.map(
-						({
-							name,
-							id,
-							background_image,
-						}: {
-							name: string;
-							id: number;
-							background_image: string;
-						}) => (
-							<SearchList
-								className=" flex items-center text-slate-300"
-								key={id}
-								id={id}
-								name={name}
-								background_image={background_image}
-							/>
-						)
-					)}
-				</div>
+				<DataListMap
+					data={dataSearchInput}
+					reset={resetInput}
+					className={
+						'flex flex-col z-30  w-full mx-auto bg-zinc-900 rounded-lg text-white    shadow-md'
+					}
+				/>
 			) : null}
 		</div>
 	);
 }
 export default Page;
+
+//
