@@ -11,7 +11,7 @@ import Context from '../../context/Context';
 import Image from 'next/image';
 import { useContext } from 'react';
 import Link from 'next/link';
-import { displayIcon } from './LeftMenu/DisplayIcon';
+import { displayIcon } from '../../utils/DisplayIcon';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
