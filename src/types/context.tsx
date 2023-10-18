@@ -1,6 +1,4 @@
 export interface MyContextType {
-	toggleMenu: boolean;
-	toggleMenuHandler: () => void;
 	url: string;
 	urlHandler: (url: string) => void;
 	data: any;

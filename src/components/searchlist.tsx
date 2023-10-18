@@ -6,30 +6,36 @@ const SearchList = ({
 	children,
 	background_image,
 	id,
+	className,
+	onClick,
 }: {
 	children?: React.ReactNode;
 	name: string;
 	background_image?: string;
 	id: number;
+	className?: string;
+	onClick?: () => void;
 }) => {
 	return (
-		<div className="flex items-center p-[2px] py-2 hover:bg-white select-none px-3">
-			{background_image && (
-				<div>
-					<Image
-						className="mr-2"
-						src={background_image}
-						alt={name}
-						width={50}
-						height={50}
-					/>
-				</div>
-			)}
-			<Link href={`/game/${id}`}>
+		<Link onClick={onClick} href={`/game/${id}`}>
+			<div className={className}>
+				{background_image && (
+					<div className="">
+						<Image
+							className="mr-2 pl-2 p-1"
+							src={background_image}
+							alt={name}
+							width={50}
+							height={50}
+						/>
+					</div>
+				)}
+
 				<p>{name}</p>
-			</Link>
-			<div>{children}</div>
-		</div>
+
+				<div>{children}</div>
+			</div>
+		</Link>
 	);
 };
 export default SearchList;

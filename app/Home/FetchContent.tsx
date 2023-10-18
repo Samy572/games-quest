@@ -47,7 +47,7 @@ const FetchContent = () => {
 	};
 
 	return (
-		<div className="w-full grid md:grid-cols-2 lg:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 px-5 pt-10 transition-all ">
+		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
 			{data.map(
 				({ name, background_image, genres, platforms, id }: GameCardType) => (
 					<Card
@@ -61,8 +61,8 @@ const FetchContent = () => {
 								alt={name}
 								width={300}
 								height={300}
-								objectFit="cover"
-								loading="lazy"
+								quality={65}
+								priority={false}
 								style={{ width: '100%', height: 'auto' }}
 							/>
 							<CardTitle

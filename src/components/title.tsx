@@ -3,10 +3,8 @@ type titleProps = {
 };
 const Title = ({ title }: titleProps) => {
 	return (
-		<div className="relative">
-			<h2 className="text-4xl font-semibold font-monstserrat  lg:left-[360px]  absolute left-5 top-10 select-none">
-				{title}
-			</h2>
+		<div className="w-full flex justify-center sm:flex lg:justify-start ">
+			<h2 className="  text-4xl font-semibold md:ml-14 ml-0">{title}</h2>
 		</div>
 	);
 };

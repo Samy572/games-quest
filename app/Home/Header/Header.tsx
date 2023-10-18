@@ -1,6 +1,5 @@
 'use client';
 import { Search, X } from 'lucide-react';
-import { BurgerMenu } from '../Menu/BurgerMenu';
 import { Label } from '../../../src/components/ui/label';
 import { Input } from '../../../src/components/ui/input';
 import { Logo } from '../../../src/components/Logo';
@@ -19,7 +18,7 @@ export const Header = () => {
 		>
 			{' '}
 			<Logo />
-			<div className="input flex items-center relative">
+			<div className="input md:flex items-center relative hidden">
 				<Label
 					htmlFor="search"
 					className="  absolute left-0 bottom-2.5 px-2 text-sm text-black z-10 font-bold"
@@ -44,35 +43,39 @@ export const Header = () => {
 						<X />
 					</button>
 				)}
+
+				{dataSearchInput.length > 0 ? (
+					<div
+						onMouseLeave={() => resetInput()}
+						className="flex flex-col z-30 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md"
+					>
+						{dataSearchInput
+							.slice(0, 10)
+							.map(
+								({
+									name,
+									id,
+									background_image,
+								}: {
+									name: string;
+									id: number;
+									background_image: string;
+								}) => (
+									<SearchList
+										onClick={() => resetInput()}
+										className={
+											'flex items-center p-[2px] py-2 hover:bg-white select-none px-3 '
+										}
+										key={id}
+										id={id}
+										name={name}
+										background_image={background_image}
+									/>
+								)
+							)}
+					</div>
+				) : null}
 			</div>
-			{dataSearchInput.length > 0 ? (
-				<div
-					onMouseLeave={() => resetInput()}
-					className="flex flex-col z-30 absolute top-16	-10 right-auto border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md"
-				>
-					{dataSearchInput
-						.slice(0, 10)
-						.map(
-							({
-								name,
-								id,
-								background_image,
-							}: {
-								name: string;
-								id: number;
-								background_image: string;
-							}) => (
-								<SearchList
-									key={id}
-									id={id}
-									name={name}
-									background_image={background_image}
-								/>
-							)
-						)}
-				</div>
-			) : null}
-			<BurgerMenu />
 		</header>
 	);
 };

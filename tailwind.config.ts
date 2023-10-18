@@ -64,6 +64,9 @@ module.exports = {
 				black: '#09090b',
 				blackTransparent: '#202020',
 			},
+			scrollbar: {
+				scrollbarWidth: ['thin'],
+			},
 
 			keyframes: {
 				'accordion-down': {

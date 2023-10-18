@@ -10,7 +10,7 @@ export const Logo = ({ className }: { className?: string }) => {
 					'font-montserrat text-3xl font-bold text-lime-300 select-none -tracking-tighter lg:absolute lg:pl-10 lg:left-0 top-5	lg:text-4xl '
 				)}
 			>
-				<Link className="min-w-fit" href={'/'}>
+				<Link className="min-w-fit" href={'/home'}>
 					G<Swords size={20} className="inline text-stone-300" />
 					mes
 				</Link>
