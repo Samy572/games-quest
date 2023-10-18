@@ -18,8 +18,10 @@ export const Navmenu = () => {
 					Search
 				</Link>
 				<li>
-					<Link href={'/mylist'} className="flex justify-center">
-						<Star size={20} />
+					<Link href={'/mylist'}>
+						<span className="flex justify-center">
+							<Star size={20} />
+						</span>
 					</Link>
 					My List
 				</li>
