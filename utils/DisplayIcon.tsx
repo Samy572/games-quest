@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-export const displayIcon = (name: string) => {
+export const displayIcon = (name: string, imgPath: string) => {
 	switch (name) {
 		case 'PC':
 			return (
 				<Image
-					src="img/microsoft.svg"
+					src={`${imgPath}/microsoft.svg`}
 					alt="pc"
 					width={18}
 					height={18}
@@ -17,19 +17,28 @@ export const displayIcon = (name: string) => {
 		case 'PlayStation 5':
 		case 'PlayStation 4':
 			return (
-				<Image src="img/ps5.svg" alt="playstation" width={18} height={18} />
+				<Image
+					src={`${imgPath}/ps5.svg`}
+					alt="playstation"
+					width={18}
+					height={18}
+				/>
 			);
 		case 'Xbox':
 		case 'Xbox Series S/X':
-			return <Image src="img/xbox.svg" alt="xbox" width={18} height={18} />;
+			return (
+				<Image src={`${imgPath}/xbox.svg`} alt="xbox" width={18} height={18} />
+			);
 
 		case 'MacOS':
 		case 'iOS':
-			return <Image src="img/mac.svg" alt="mac os" width={18} height={18} />;
+			return (
+				<Image src={`${imgPath}/mac.svg`} alt="mac os" width={18} height={18} />
+			);
 		case 'Nitendo Switch':
 			return (
 				<Image
-					src="img/switch.svg"
+					src={`${imgPath}/switch.svg`}
 					alt="nitendo-switch"
 					width={18}
 					height={18}
@@ -39,10 +48,15 @@ export const displayIcon = (name: string) => {
 		case 'Game Boy Advance':
 		case 'Game Boy Color':
 			return (
-				<Image src="img/nitendo.svg" alt="nitendo" width={18} height={18} />
+				<Image
+					src={`${imgPath}/nitendo.svg`}
+					alt="nitendo"
+					width={18}
+					height={18}
+				/>
 			);
 
 		case 'SEGA':
-			return <Image src="img/SEGA.svg" alt="SEGA" width={18} height={18} />;
+			return <Image src="imgPath/SEGA.svg" alt="SEGA" width={18} height={18} />;
 	}
 };
