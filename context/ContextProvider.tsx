@@ -15,7 +15,7 @@ export default function ContextProvider({
 
 	const baseApiUrl = 'https://api.rawg.io/api/games';
 	const defaultUrlParams = `?page_size=18&key=${APIKEY}&ordering=-added`;
-	const searchGames = `https://api.rawg.io/api/games?key=${APIKEY}&search=${inputValue}`;
+	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
 
 	const [url, setUrl] = useState(
 		`${baseApiUrl}${defaultUrlParams}&dates=2023-01-01,2023-12-31`

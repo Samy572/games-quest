@@ -44,6 +44,7 @@ function Game({ params }: { params: { id: number } }) {
 							className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md"
 						/>
 						<Body selectedGameData={selectedGameData} />
+
 						<Description selectedGameData={selectedGameData} />
 					</div>
 				</div>
