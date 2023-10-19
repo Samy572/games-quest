@@ -3,12 +3,11 @@ import Context from '@/context/Context';
 import { Input } from '@/src/components/ui/input';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import DataListMap from '@/src/components/datalistmap';
+import DataListMap from '@/app/Home/Header/datalistmap';
 import { useContext } from 'react';
 
 function Page() {
-	const { handleChange, dataSearchInput, resetInput, inputValue } =
-		useContext(Context);
+	const { handleChange, dataSearchInput, resetInput } = useContext(Context);
 	return (
 		<div className="relative bg-zinc-900">
 			<div className="contain flex h-12 justify-center items-center gap-1">

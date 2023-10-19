@@ -1,6 +1,6 @@
 'use client';
 import Title from '../src/components/title';
-import FetchContent from './Home/FetchContent';
+import FetchContent from './Home/DisplayGames';
 import { LeftMenu } from './Home/LeftMenu/LeftMenu';
 import { useContext } from 'react';
 import Context from '@/context/Context';

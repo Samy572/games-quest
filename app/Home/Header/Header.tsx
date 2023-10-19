@@ -5,7 +5,7 @@ import { Input } from '../../../src/components/ui/input';
 import { Logo } from '../../../src/components/Logo';
 import { useContext } from 'react';
 import Context from '@/context/Context';
-import DataListMap from '@/src/components/datalistmap';
+import DataListMap from './datalistmap';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =
@@ -43,7 +43,6 @@ export const Header = () => {
 						<X />
 					</button>
 				)}
-
 				{dataSearchInput.length > 0 ? (
 					<DataListMap
 						data={dataSearchInput}

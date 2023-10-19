@@ -31,9 +31,7 @@ export const LeftMenu = () => {
 			<div className="navigation ">
 				<ul className="">
 					<h2 className="text-2xl pb-14">
-						{' '}
 						<Link href={'/home'}>
-							{' '}
 							<strong>Home</strong>
 						</Link>
 					</h2>

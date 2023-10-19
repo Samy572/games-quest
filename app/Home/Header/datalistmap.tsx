@@ -1,4 +1,4 @@
-import SearchList from './searchlist';
+import SearchList from '../../../src/components/searchlist';
 
 interface listMap {
 	data: never[];
