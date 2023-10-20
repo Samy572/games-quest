@@ -1,3 +1,5 @@
+import { GameCardType } from './game';
+
 export interface MyContextType {
 	url: string;
 	urlHandler: (url: string) => void;
@@ -7,4 +9,6 @@ export interface MyContextType {
 	dataSearchInput: any;
 	resetInput: () => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleAddFavoris: (gameSelected: GameCardType) => void;
+	listFavorite: GameCardType[];
 }

@@ -1,3 +1,4 @@
+import { GameCardType } from '@/src/types/game';
 import { createContext } from 'react';
 
 export default createContext({
@@ -9,4 +10,6 @@ export default createContext({
 	dataSearchInput: [],
 	resetInput: () => {},
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
+	handleAddFavoris: (gameSelected: GameCardType) => {},
+	listFavorite: [{}],
 });

@@ -4,8 +4,8 @@ import { Label } from '../../../src/components/ui/label';
 import { Input } from '../../../src/components/ui/input';
 import { Logo } from '../../../src/components/Logo';
 import { useContext } from 'react';
-import SearchList from '../../../src/components/searchlist';
 import Context from '@/context/Context';
+import DataListMap from './datalistmap';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =
@@ -43,37 +43,14 @@ export const Header = () => {
 						<X />
 					</button>
 				)}
-
 				{dataSearchInput.length > 0 ? (
-					<div
-						onMouseLeave={() => resetInput()}
-						className="flex flex-col z-30 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md"
-					>
-						{dataSearchInput
-							.slice(0, 10)
-							.map(
-								({
-									name,
-									id,
-									background_image,
-								}: {
-									name: string;
-									id: number;
-									background_image: string;
-								}) => (
-									<SearchList
-										onClick={() => resetInput()}
-										className={
-											'flex items-center p-[2px] py-2 hover:bg-white select-none px-3 '
-										}
-										key={id}
-										id={id}
-										name={name}
-										background_image={background_image}
-									/>
-								)
-							)}
-					</div>
+					<DataListMap
+						data={dataSearchInput}
+						reset={resetInput}
+						className={
+							'flex flex-col z-30 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md'
+						}
+					/>
 				) : null}
 			</div>
 		</header>

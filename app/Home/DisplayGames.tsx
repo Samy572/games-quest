@@ -6,45 +6,15 @@ import {
 	CardHeader,
 	CardTitle,
 } from '../../src/components/ui/card';
-import List from '../../src/components/ui/list';
 import Context from '../../context/Context';
 import Image from 'next/image';
 import { useContext } from 'react';
 import Link from 'next/link';
+import Displayplatforms from '@/src/components/displayplatforms';
+import { GameCardType } from '@/src/types/game';
 
 const FetchContent = () => {
 	const { data } = useContext(Context);
-	interface GameCardType {
-		name: string;
-		background_image: string;
-		genres: [];
-		platforms: [];
-		id: number;
-	}
-
-	const displayIcon = (name: string) => {
-		switch (name) {
-			case 'PC':
-				return (
-					<Image
-						src="img/microsoft.svg"
-						alt="pc"
-						width={18}
-						height={18}
-						className="p-0"
-					/>
-				);
-			case 'PlayStation':
-			case 'PlayStation 5':
-			case 'PlayStation 4':
-				return (
-					<Image src="img/ps5.svg" alt="playstation" width={18} height={18} />
-				);
-			case 'Xbox':
-			case 'Xbox Series S/X':
-				return <Image src="img/xbox.svg" alt="xbox" width={18} height={18} />;
-		}
-	};
 
 	return (
 		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
@@ -81,11 +51,7 @@ const FetchContent = () => {
 											<li key={genre.name}>{genre.name}</li>
 										))}
 									</div>
-									<div className="flex ">
-										{platforms.slice(0, 2).map(({ platform: { id, name } }) => (
-											<List key={id} Icon={displayIcon(name)} platform={true} />
-										))}
-									</div>
+									<Displayplatforms platforms={platforms} img="img" />
 								</ul>
 							</CardDescription>
 						</CardHeader>
