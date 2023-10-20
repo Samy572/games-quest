@@ -1,5 +1,4 @@
 'use client';
-import { LeftMenu } from '@/app/Home/LeftMenu/LeftMenu';
 import { Logo } from '@/src/components/Logo';
 import { Navmenu } from '@/src/components/navmenu';
 import Image from 'next/image';
@@ -20,7 +19,6 @@ function Game({ params }: { params: { id: number } }) {
 				const response = await fetch(urlGameSelected);
 				const data = await response.json();
 				setSelectedGameData(data);
-				console.log('data :', data);
 			} catch (error) {
 				console.error('error :', error);
 			}
@@ -30,7 +28,6 @@ function Game({ params }: { params: { id: number } }) {
 	return (
 		<div className="px-4 select-none pb-14 ">
 			<Logo className="pt-5" />
-			<LeftMenu />
 			{selectedGameData && (
 				<div className="pt-5  flex justify-center  ">
 					<div className="flex flex-col w-[45rem] md:w-[34rem] xl:w-[45rem] ">
@@ -44,7 +41,6 @@ function Game({ params }: { params: { id: number } }) {
 							className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md"
 						/>
 						<Body selectedGameData={selectedGameData} />
-
 						<Description selectedGameData={selectedGameData} />
 					</div>
 				</div>

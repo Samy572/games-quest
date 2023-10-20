@@ -3,30 +3,11 @@ import { GameCardType } from '@/src/types/game';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { Badge } from '@/src/components/ui/badge';
 import Favoris from './favoris';
-import { useState } from 'react';
+import Context from '@/context/Context';
+import { useContext } from 'react';
 
 const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
-	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
-
-	const handleAddFavoris = (gameSelected: GameCardType) => {
-		//Si l'élément existe déja
-		const isAlreadyFavorited = listFavorite.some(
-			(item) => item.id === gameSelected.id
-		);
-
-		if (isAlreadyFavorited) {
-			// Si c'est déjà favoris je supprime
-			const updatedList = listFavorite.filter(
-				(item: GameCardType) => item.id !== gameSelected.id
-			);
-			setListFavorite(updatedList);
-		} else {
-			// Si l'élément n'est pas en favoris
-			setListFavorite([...listFavorite, gameSelected]);
-		}
-		console.log(listFavorite);
-	};
-
+	const { handleAddFavoris, listFavorite } = useContext(Context);
 	return (
 		<div className="text-left pt-5 text-4xl">
 			<h2 className="pb-5 text-lime-300">{selectedGameData.name}</h2>
@@ -46,12 +27,12 @@ const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 			<Favoris
 				onClick={() => handleAddFavoris(selectedGameData)}
 				description={
-					listFavorite.includes(selectedGameData)
+					listFavorite.some((item: any) => item.id === selectedGameData.id)
 						? 'Remove from favoris'
 						: 'Add to favoris'
 				}
 				img={
-					listFavorite.includes(selectedGameData)
+					listFavorite.some((item: any) => item.id === selectedGameData.id)
 						? '../img/Star_full.svg'
 						: '../img/Star_empty.svg'
 				}

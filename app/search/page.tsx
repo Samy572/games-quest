@@ -25,7 +25,7 @@ function Page() {
 			{dataSearchInput.length > 0 ? (
 				<DataListMap
 					data={dataSearchInput}
-					reset={resetInput}k
+					reset={resetInput}
 					className={
 						'flex flex-col z-30  w-full mx-auto bg-zinc-900 rounded-lg text-white    shadow-md'
 					}
