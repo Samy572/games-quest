@@ -107,7 +107,7 @@ export default function ContextProvider({
 			const favoris = JSON.parse(favoriteListStorage);
 			setListFavorite(favoris);
 		}
-	}, [listFavorite]);
+	}, []);
 
 	const contextValue: MyContextType = {
 		url,
