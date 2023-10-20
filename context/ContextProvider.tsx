@@ -88,14 +88,26 @@ export default function ContextProvider({
 			const updatedList = copy.filter(
 				(item: GameCardType) => item.id !== gameSelected.id
 			);
+			// update du localstorage
 			localStorage.setItem('favoris', JSON.stringify(updatedList));
-			setListFavorite(updatedList);
 		} else {
-			// Si l'élément n'est pas en favoris je rajoute
-			setListFavorite([...listFavorite, gameSelected]);
+			// Si pas en favoris update
+			copy.push(gameSelected);
+
+			setListFavorite(copy);
+			// sauvegarde dans le localstorage
+			localStorage.setItem('favoris', JSON.stringify(copy));
 		}
 		console.log(listFavorite);
 	};
+
+	useEffect(() => {
+		const favoriteListStorage = localStorage.getItem('favoris');
+		if (favoriteListStorage) {
+			const favoris = JSON.parse(favoriteListStorage);
+			setListFavorite(favoris);
+		}
+	}, [listFavorite]);
 
 	const contextValue: MyContextType = {
 		url,
