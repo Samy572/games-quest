@@ -88,6 +88,7 @@ export default function ContextProvider({
 			const updatedList = copy.filter(
 				(item: GameCardType) => item.id !== gameSelected.id
 			);
+			setListFavorite(updatedList);
 			// update du localstorage
 			localStorage.setItem('favoris', JSON.stringify(updatedList));
 		} else {
