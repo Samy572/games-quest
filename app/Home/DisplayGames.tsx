@@ -1,4 +1,3 @@
-'use client';
 import {
 	Card,
 	CardDescription,
@@ -6,16 +5,12 @@ import {
 	CardHeader,
 	CardTitle,
 } from '../../src/components/ui/card';
-import Context from '../../context/Context';
 import Image from 'next/image';
-import { useContext } from 'react';
 import Link from 'next/link';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { GameCardType } from '@/src/types/game';
 
-const FetchContent = () => {
-	const { data } = useContext(Context);
-
+const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 	return (
 		<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
 			{data.map(
@@ -66,4 +61,4 @@ const FetchContent = () => {
 		</div>
 	);
 };
-export default FetchContent;
+export default DisplayGames;

@@ -57,6 +57,18 @@ export const displayIcon = (name: string, imgPath: string) => {
 			);
 
 		case 'SEGA':
-			return <Image src="imgPath/SEGA.svg" alt="SEGA" width={18} height={18} />;
+			return (
+				<Image src={`${imgPath}/SEGA.svg`} alt="SEGA" width={18} height={18} />
+			);
+
+		case 'GameCube':
+			return (
+				<Image
+					src={`${imgPath}/gamecube.svg`}
+					alt="GameCube"
+					width={18}
+					height={18}
+				/>
+			);
 	}
 };

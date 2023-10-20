@@ -45,6 +45,7 @@ function Game({ params }: { params: { id: number } }) {
 					</div>
 				</div>
 			)}
+			
 			<Navmenu />
 		</div>
 	);

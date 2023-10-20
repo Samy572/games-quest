@@ -29,7 +29,7 @@ export const LeftMenu = () => {
 	return (
 		<nav className="text-gray-200 md:cols-span-1 md:w-[320px]  pt-16 w-fit transition-all hidden lg:flex pl-10 select-none overflow-y-auto max-h-[700px] scroll fixed">
 			<div className="navigation ">
-				<ul className="">
+				<ul >
 					<h2 className="text-2xl pb-14">
 						<Link href={'/home'}>
 							<strong>Home</strong>
