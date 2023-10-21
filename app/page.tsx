@@ -18,6 +18,9 @@ export default function Home() {
 				<Title title={title(url)} />
 				<DisplayGames data={data} />
 			</main>
+			<footer>
+				
+			</footer>
 			<Navmenu />
 		</>
 	);

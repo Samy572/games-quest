@@ -14,8 +14,9 @@ export default function ContextProvider({
 	const [dataSearchInput, setDataSearchInput] = useState([]);
 	const APIKEY = process.env.SECRET;
 	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
+	const [count, setCount] = useState(1);
 	const baseApiUrl = 'https://api.rawg.io/api/games';
-	const defaultUrlParams = `?page_size=18&key=${APIKEY}&ordering=-added`;
+	const defaultUrlParams = `?page=${count}&page_size=15&key=${APIKEY}&ordering=-added`;
 	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
 
 	const [url, setUrl] = useState(
@@ -29,20 +30,21 @@ export default function ContextProvider({
 
 	// Fetch data from API to display main data
 	useEffect(() => {
-		async function fetchData() {
+		const fetchData = async () => {
+			const updatedUrl = `${baseApiUrl}?page=${count}&page_size=15&key=${APIKEY}&ordering=-added&dates=2023-01-01,2023-12-31`;
 			try {
-				const response = await fetch(url);
+				const response = await fetch(updatedUrl);
 				if (!response.ok) {
-					throw new Error('Réponse du serveur non valide');
+					throw new Error('error');
 				}
 				const data = await response.json();
 				setData(data.results);
 			} catch (error) {
-				console.error('Erreur lors de la récupération des données :', error);
+				console.error(error);
 			}
-		}
+		};
 		fetchData();
-	}, [url]);
+	}, [count, baseApiUrl, APIKEY]);
 
 	const urlHandler = (year: string) => {
 		const selectedYear = year.includes(year) ? year : '2023';
@@ -110,6 +112,8 @@ export default function ContextProvider({
 		}
 	}, []);
 
+	// Change page left right
+
 	const contextValue: MyContextType = {
 		url,
 		urlHandler,
@@ -121,6 +125,8 @@ export default function ContextProvider({
 		handleChange,
 		handleAddFavoris,
 		listFavorite,
+		count,
+		setCount,
 	};
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;
