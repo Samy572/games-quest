@@ -9,31 +9,54 @@ export default function ContextProvider({
 }: {
 	children: React.ReactNode;
 }) {
+	// Main Data
 	const [data, setData] = useState([]);
+	// Search Data
 	const [inputValue, setInputValue] = useState('');
 	const [dataSearchInput, setDataSearchInput] = useState([]);
-	const APIKEY = process.env.SECRET;
+
+	// Favorite List
 	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
+	// Count for pagination
 	const [count, setCount] = useState(1);
+	const [selectedUrl, setSelectedUrl] = useState('2023');
+
+	// url to fetch
+	const APIKEY = process.env.SECRET;
 	const baseApiUrl = 'https://api.rawg.io/api/games';
 	const defaultUrlParams = `?page=${count}&page_size=15&key=${APIKEY}&ordering=-added`;
 	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
-
-	const [url, setUrl] = useState(
-		`${baseApiUrl}${defaultUrlParams}&dates=2023-01-01,2023-12-31`
-	);
+	const date = `&dates=${selectedUrl}-01-01,${selectedUrl}-12-31`;
+	const [url, setUrl] = useState(`${baseApiUrl}${defaultUrlParams}${date}`);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
 		console.log(e);
 	};
 
+	// Switch year dynamically
+	const urlHandler = (year: string) => {
+		const selectedYear = year.includes(year) ? year : '2023';
+		setUrl(
+			`${baseApiUrl}${defaultUrlParams}&dates=${selectedYear}-01-01,${selectedYear}-12-31`
+		);
+	};
+	const handleClick = (url: string) => {
+		urlHandler(url);
+		setSelectedUrl(url);
+	};
+
+	//&ordering=-added&dates=2023-01-01,2023-12-31
+
 	// Fetch data from API to display main data
 	useEffect(() => {
 		const fetchData = async () => {
-			const updatedUrl = `${baseApiUrl}?page=${count}&page_size=15&key=${APIKEY}&ordering=-added&dates=2023-01-01,2023-12-31`;
+			if (count !== 1) {
+				const updateUrl = `${baseApiUrl}${defaultUrlParams}${date}`;
+				setUrl(updateUrl);
+			}
 			try {
-				const response = await fetch(updatedUrl);
+				const response = await fetch(url);
 				if (!response.ok) {
 					throw new Error('error');
 				}
@@ -44,14 +67,8 @@ export default function ContextProvider({
 			}
 		};
 		fetchData();
-	}, [count, baseApiUrl, APIKEY]);
-
-	const urlHandler = (year: string) => {
-		const selectedYear = year.includes(year) ? year : '2023';
-		setUrl(
-			`${baseApiUrl}${defaultUrlParams}&dates=${selectedYear}-01-01,${selectedYear}-12-31`
-		);
-	};
+		console.log(url);
+	}, [count, url, defaultUrlParams, baseApiUrl, date, APIKEY]);
 
 	// Search game with input
 	useEffect(() => {
@@ -127,6 +144,8 @@ export default function ContextProvider({
 		listFavorite,
 		count,
 		setCount,
+		handleClick,
+		selectedUrl,
 	};
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;

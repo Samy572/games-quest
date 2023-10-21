@@ -13,4 +13,6 @@ export interface MyContextType {
 	listFavorite: GameCardType[];
 	count: number;
 	setCount: (count: number) => void;
+	handleClick: (url: string) => void;
+	selectedUrl: string;
 }

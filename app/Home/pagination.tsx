@@ -1,7 +1,7 @@
 import Context from '@/context/Context';
 import { Button } from '@/src/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { clsx } from 'clsx';
 
 const Pagination = () => {
@@ -17,7 +17,7 @@ const Pagination = () => {
 	};
 
 	return (
-		<div className="mt-12 w-full flex justify-center gap-2">
+		<div className="my-10 md:mt-12 w-full flex justify-center gap-2">
 			<Button onClick={() => handlePageClick(-1)}>
 				<ChevronLeft className="text-lime-300" />
 			</Button>

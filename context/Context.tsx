@@ -14,4 +14,6 @@ export default createContext({
 	listFavorite: [{}],
 	count: 1,
 	setCount: (count: number) => {},
+	handleClick: (url: string) => {},
+	selectedUrl: '',
 });

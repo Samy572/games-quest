@@ -5,16 +5,11 @@ import { ChevronDown, ChevronUp, Flame, Sparkles, Trophy } from 'lucide-react';
 import { useContext, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/src/components/ui/button';
-import { redirect } from 'next/navigation';
 
 export const LeftMenu = () => {
-	const { urlHandler } = useContext(Context);
-	const [selectedUrl, setSelectedUrl] = useState('2023');
+	const { handleClick, selectedUrl } = useContext(Context);
+	// const [selectedUrl, setSelectedUrl] = useState('2023');
 	const [year, setYear] = useState(['2023', '2022', '2021']);
-	const handleClick = (url: string) => {
-		urlHandler(url);
-		setSelectedUrl(url);
-	};
 
 	const showMoreYear = () => {
 		const copy = [...year];
@@ -25,10 +20,6 @@ export const LeftMenu = () => {
 		if (year.length > 5) {
 			setYear(copy.slice(0, 4));
 		}
-	};
-
-	const redirectTo = () => {
-		redirect('/mylist');
 	};
 
 	return (

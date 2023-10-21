@@ -61,7 +61,8 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 					)
 				)}
 			</div>
-			<Pagination />
+
+			{data.length >= 15 && <Pagination />}
 		</div>
 	);
 };
