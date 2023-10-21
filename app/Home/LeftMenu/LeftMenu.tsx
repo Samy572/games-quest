@@ -37,20 +37,19 @@ export const LeftMenu = () => {
 						<strong>Top</strong>
 					</h2>
 					{year.map((year) => (
-						<Link key={year} href={'/home'}>
-							<List
-								Icon={
-									year === '2023' ? (
-										<Trophy className="text-amber-500" />
-									) : (
-										<Flame className="text-red-800" />
-									)
-								}
-								onClick={() => handleClick(year)}
-								name={`Popular in ${year}`}
-								active={selectedUrl === year}
-							/>
-						</Link>
+						<List
+							key={year}
+							Icon={
+								year === '2023' ? (
+									<Trophy className="text-amber-500" />
+								) : (
+									<Flame className="text-red-800" />
+								)
+							}
+							onClick={() => handleClick(year)}
+							name={`Popular in ${year}`}
+							active={selectedUrl === year}
+						/>
 					))}
 					{year.length < 5 ? (
 						<Button

@@ -51,10 +51,9 @@ export default function ContextProvider({
 	// Fetch data from API to display main data
 	useEffect(() => {
 		const fetchData = async () => {
-			if (count !== 1) {
-				const updateUrl = `${baseApiUrl}${defaultUrlParams}${date}`;
-				setUrl(updateUrl);
-			}
+			let updateUrl = `${baseApiUrl}${defaultUrlParams}${date}`;
+			setUrl(updateUrl);
+
 			try {
 				const response = await fetch(url);
 				if (!response.ok) {
