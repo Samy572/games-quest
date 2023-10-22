@@ -12,7 +12,6 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { LeftMenu } from '../Home/LeftMenu/LeftMenu';
 import { ArrowLeft } from 'lucide-react';
 
 function MyList() {

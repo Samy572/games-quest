@@ -31,7 +31,6 @@ export default function ContextProvider({
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
-		console.log(e);
 	};
 
 	// Switch year dynamically
@@ -45,7 +44,6 @@ export default function ContextProvider({
 		urlHandler(url);
 		setSelectedUrl(url);
 	};
-
 
 	// Fetch data from API to display main data
 	useEffect(() => {
@@ -65,7 +63,6 @@ export default function ContextProvider({
 			}
 		};
 		fetchData();
-		console.log(url);
 	}, [count, url, defaultUrlParams, baseApiUrl, date, APIKEY]);
 
 	// Search game with input
@@ -116,7 +113,6 @@ export default function ContextProvider({
 			// sauvegarde dans le localstorage
 			localStorage.setItem('favoris', JSON.stringify(copy));
 		}
-		console.log(listFavorite);
 	};
 
 	useEffect(() => {
