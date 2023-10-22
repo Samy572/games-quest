@@ -46,7 +46,6 @@ export default function ContextProvider({
 		setSelectedUrl(url);
 	};
 
-	//&ordering=-added&dates=2023-01-01,2023-12-31
 
 	// Fetch data from API to display main data
 	useEffect(() => {
