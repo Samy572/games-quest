@@ -1,4 +1,4 @@
-import { displayIcon } from '@/utils/DisplayIcon';
+import { displayIcon } from '@/src/utils/DisplayIcon';
 import List from './ui/list';
 
 interface PlatformType {
