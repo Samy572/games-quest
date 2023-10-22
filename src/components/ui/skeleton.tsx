@@ -1,15 +1,19 @@
-import { cn } from "@/lib/utils"
-
-function Skeleton({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn("animate-pulse rounded-md bg-primary/10", className)}
-      {...props}
-    />
-  )
+export default function Skeleton({ number: number }: { number: number }) {
+	return Array(number)
+		.fill(0)
+		.map((el, index) => (
+			<div key={index}>
+				<div className="flex flex-row bg-white shadow-lg border-r-4 w-[20rem] items-center gap-2 p-2 arrondi">
+					{' '}
+					<div
+						className="rounded-full bg-gray-300 w-[ 
+              4.5 rem] h-[4.5rem] animate-pulse"
+					></div>
+					<div className="flex flex-col gap-2 w-9/12">
+						<span className="w-11/12 bg-gray- 300 h-2 arrondi-plein animate-pulse"></span>
+						<span className="w-9/12 bg-gray-300 h-2 arrondi-plein animate-pulse"></span>
+					</div>
+				</div>
+			</div>
+		));
 }
-
-export { Skeleton }

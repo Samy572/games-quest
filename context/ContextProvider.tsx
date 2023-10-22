@@ -9,47 +9,64 @@ export default function ContextProvider({
 }: {
 	children: React.ReactNode;
 }) {
+	// Main Data
 	const [data, setData] = useState([]);
+	// Search Data
 	const [inputValue, setInputValue] = useState('');
 	const [dataSearchInput, setDataSearchInput] = useState([]);
-	const APIKEY = process.env.SECRET;
-	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
-	const baseApiUrl = 'https://api.rawg.io/api/games';
-	const defaultUrlParams = `?page_size=18&key=${APIKEY}&ordering=-added`;
-	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
 
-	const [url, setUrl] = useState(
-		`${baseApiUrl}${defaultUrlParams}&dates=2023-01-01,2023-12-31`
-	);
+	// Favorite List
+	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
+	// Count for pagination
+	const [count, setCount] = useState(1);
+	const [selectedUrl, setSelectedUrl] = useState('2023');
+
+	// url to fetch
+	const APIKEY = process.env.SECRET;
+	const baseApiUrl = 'https://api.rawg.io/api/games';
+	const defaultUrlParams = `?page=${count}&page_size=15&key=${APIKEY}&ordering=-added`;
+	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
+	const date = `&dates=${selectedUrl}-01-01,${selectedUrl}-12-31`;
+	const [url, setUrl] = useState(`${baseApiUrl}${defaultUrlParams}${date}`);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
 		console.log(e);
 	};
 
-	// Fetch data from API to display main data
-	useEffect(() => {
-		async function fetchData() {
-			try {
-				const response = await fetch(url);
-				if (!response.ok) {
-					throw new Error('Réponse du serveur non valide');
-				}
-				const data = await response.json();
-				setData(data.results);
-			} catch (error) {
-				console.error('Erreur lors de la récupération des données :', error);
-			}
-		}
-		fetchData();
-	}, [url]);
-
+	// Switch year dynamically
 	const urlHandler = (year: string) => {
 		const selectedYear = year.includes(year) ? year : '2023';
 		setUrl(
 			`${baseApiUrl}${defaultUrlParams}&dates=${selectedYear}-01-01,${selectedYear}-12-31`
 		);
 	};
+	const handleClick = (url: string) => {
+		urlHandler(url);
+		setSelectedUrl(url);
+	};
+
+
+	// Fetch data from API to display main data
+	useEffect(() => {
+		const fetchData = async () => {
+			let updateUrl = `${baseApiUrl}${defaultUrlParams}${date}`;
+			setUrl(updateUrl);
+
+			try {
+				const response = await fetch(url);
+				if (!response.ok) {
+					throw new Error('error');
+				}
+				const data = await response.json();
+				setData(data.results);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+		fetchData();
+		console.log(url);
+	}, [count, url, defaultUrlParams, baseApiUrl, date, APIKEY]);
 
 	// Search game with input
 	useEffect(() => {
@@ -110,6 +127,8 @@ export default function ContextProvider({
 		}
 	}, []);
 
+	// Change page left right
+
 	const contextValue: MyContextType = {
 		url,
 		urlHandler,
@@ -121,6 +140,10 @@ export default function ContextProvider({
 		handleChange,
 		handleAddFavoris,
 		listFavorite,
+		count,
+		setCount,
+		handleClick,
+		selectedUrl,
 	};
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;

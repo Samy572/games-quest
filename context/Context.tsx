@@ -12,4 +12,8 @@ export default createContext({
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
 	handleAddFavoris: (gameSelected: GameCardType) => {},
 	listFavorite: [{}],
+	count: 1,
+	setCount: (count: number) => {},
+	handleClick: (url: string) => {},
+	selectedUrl: '',
 });

@@ -12,29 +12,38 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
+import { LeftMenu } from '../Home/LeftMenu/LeftMenu';
+import { ArrowLeft } from 'lucide-react';
 
 function MyList() {
 	const { listFavorite } = useContext(Context);
 	return (
 		<div>
 			{listFavorite.length > 0 && (
-				<h2 className="text-4xl font-semibold pt-12 px-5">My List ✨ </h2>
+				<div className="h-28 flex items-center  ">
+					<Link className="ml-10 mr-10" href={'/home'}>
+						<ArrowLeft size={32} />
+					</Link>
+					<h2 className="md:text-4xl text-2xl  font-semibold text-left ">
+						My List ✨{' '}
+					</h2>
+				</div>
 			)}
 			{listFavorite.length > 0 ? (
-				<div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 py-12">
+				<div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 py-10">
 					{listFavorite.map(
 						({ id, name, background_image, platforms, genres }: any) => {
 							return (
 								<Card
 									key={id}
-									className="bg-stone-900 border-stone-700 transition-all   "
+									className="bg-stone-900 hover:bg-stone-800 border-stone-700 transition-all   "
 								>
 									<CardHeader>
 										<Image
 											src={background_image}
 											alt={name}
-											width={500}
-											height={500}
+											width={400}
+											height={400}
 											priority={false}
 											quality={65}
 										/>

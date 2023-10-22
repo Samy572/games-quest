@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Body from '../body';
 import { GameCardType } from '@/src/types/game';
 import Description from '../description';
+import { LeftMenu } from '@/app/Home/LeftMenu/LeftMenu';
 
 function Game({ params }: { params: { id: number } }) {
 	const [selectedGameData, setSelectedGameData] =
@@ -28,6 +29,7 @@ function Game({ params }: { params: { id: number } }) {
 	return (
 		<div className="px-4 select-none pb-14 ">
 			<Logo className="pt-5" />
+			<LeftMenu />
 			{selectedGameData && (
 				<div className="pt-5  flex justify-center  ">
 					<div className="flex flex-col w-[45rem] md:w-[34rem] xl:w-[45rem] ">
@@ -45,6 +47,7 @@ function Game({ params }: { params: { id: number } }) {
 					</div>
 				</div>
 			)}
+
 			<Navmenu />
 		</div>
 	);

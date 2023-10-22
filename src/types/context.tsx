@@ -11,4 +11,8 @@ export interface MyContextType {
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleAddFavoris: (gameSelected: GameCardType) => void;
 	listFavorite: GameCardType[];
+	count: number;
+	setCount: (count: number) => void;
+	handleClick: (url: string) => void;
+	selectedUrl: string;
 }
