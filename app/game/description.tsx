@@ -11,7 +11,7 @@ const Description = ({
 	const [isShowMore, setIsShowMore] = useState(false);
 
 	return (
-		<div className=" py-5 text-slate-400">
+		<div className=" py-5 t">
 			{isShowMore === false && selectedGameData.description_raw.length > 200 ? (
 				<p>
 					{selectedGameData.description_raw.split('').slice(0, 200).join('')}

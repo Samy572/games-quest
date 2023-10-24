@@ -6,6 +6,7 @@ import { Logo } from '../../../src/components/Logo';
 import { useContext } from 'react';
 import Context from '@/context/Context';
 import DataListMap from './datalistmap';
+import { ModeToggle } from '@/src/components/ui/mode-toggle';
 
 export const Header = () => {
 	const { inputValue, handleChange, dataSearchInput, resetInput } =
@@ -14,9 +15,9 @@ export const Header = () => {
 	return (
 		<header
 			className="  w-full top-0 z-10  pt-5 flex items-center justify-around
-     transition-all lg:justify-center   "
+     transition-all lg:justify-center  relative "
 		>
-			{' '}
+			<ModeToggle className={'absolute right-5 cursor-pointer select-none'} />
 			<Logo />
 			<div className="input md:flex items-center relative hidden">
 				<Label
@@ -27,7 +28,7 @@ export const Header = () => {
 				</Label>
 				<Input
 					id="search"
-					className="  bg-slate-300 rounded-2xl text-black  px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white   
+					className="  bg-slate-100 rounded-2xl text-black   px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white   
         "
 					type="text"
 					placeholder="Search game"
@@ -38,7 +39,7 @@ export const Header = () => {
 					<button
 						type="button"
 						onClick={() => resetInput()}
-						className="absolute right-2 bottom-1.5 text-black"
+						className="absolute right-2 bottom-1.5 "
 					>
 						<X />
 					</button>
@@ -48,7 +49,7 @@ export const Header = () => {
 						data={dataSearchInput}
 						reset={resetInput}
 						className={
-							'flex flex-col z-30 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 border-slate-300 bg-slate-300 rounded-lg text-black  py-2 shadow-md'
+							'flex flex-col z-40 absolute top-10	border-2 w-full  sm:w-80  lg:w-96    py-2 shadow-md bg-secondary rounded-lg'
 						}
 					/>
 				) : null}
