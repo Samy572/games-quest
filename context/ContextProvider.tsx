@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Context from '@/context/Context';
 import { MyContextType } from '@/src/types/context';
-import { GameCardType } from '@/src/types/game';
+import useFavoris from '@/hooks/useFavoris';
 
 export default function ContextProvider({
 	children,
@@ -16,7 +16,6 @@ export default function ContextProvider({
 	const [dataSearchInput, setDataSearchInput] = useState([]);
 
 	// Favorite List
-	const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
 	// Count for pagination
 	const [count, setCount] = useState(1);
 	const [selectedUrl, setSelectedUrl] = useState('2023');
@@ -28,6 +27,9 @@ export default function ContextProvider({
 	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;
 	const date = `&dates=${selectedUrl}-01-01,${selectedUrl}-12-31`;
 	const [url, setUrl] = useState(`${baseApiUrl}${defaultUrlParams}${date}`);
+
+	//	// Add game to favoris
+	const { listFavorite, handleAddFavoris } = useFavoris();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
@@ -46,6 +48,7 @@ export default function ContextProvider({
 	};
 
 	// Fetch data from API to display main data
+	// @todo Certainly a better way to retrieve data
 	useEffect(() => {
 		const fetchData = async () => {
 			let updateUrl = `${baseApiUrl}${defaultUrlParams}${date}`;
@@ -88,40 +91,6 @@ export default function ContextProvider({
 		setInputValue('');
 		setDataSearchInput([]);
 	};
-
-	// Add game to favoris
-
-	const handleAddFavoris = (gameSelected: GameCardType) => {
-		//Si l'élément existe déja
-		const isAlreadyFavorited = listFavorite.some(
-			(item) => item.id === gameSelected.id
-		);
-		const copy = [...listFavorite];
-		if (isAlreadyFavorited) {
-			// Si c'est déjà en favoris je supprime
-			const updatedList = copy.filter(
-				(item: GameCardType) => item.id !== gameSelected.id
-			);
-			setListFavorite(updatedList);
-			// update du localstorage
-			localStorage.setItem('favoris', JSON.stringify(updatedList));
-		} else {
-			// Si pas en favoris update
-			copy.push(gameSelected);
-
-			setListFavorite(copy);
-			// sauvegarde dans le localstorage
-			localStorage.setItem('favoris', JSON.stringify(copy));
-		}
-	};
-
-	useEffect(() => {
-		const favoriteListStorage = localStorage.getItem('favoris');
-		if (favoriteListStorage) {
-			const favoris = JSON.parse(favoriteListStorage);
-			setListFavorite(favoris);
-		}
-	}, []);
 
 	const contextValue: MyContextType = {
 		url,

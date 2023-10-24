@@ -24,8 +24,8 @@ const List = ({
 		>
 			<div
 				className={clsx(
-					'text-gray-200 inline-flex items-center transition-all px-4  py-2 rounded-md hover:text-lime-300 hover:bg-neutral-800 active:bg-neutral-800>',
-					{ 'text-lime-300 bg-neutral-800': active },
+					' inline-flex items-center transition-all px-4  py-2 rounded-md hover:text-primary hover:bg-neutral-800 active:bg-neutral-800>',
+					{ 'text-primary bg-neutral-800': active },
 					{ 'px-[0px]': platform }
 				)}
 			>

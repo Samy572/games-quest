@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Roboto, Montserrat } from 'next/font/google';
 import { clsx } from 'clsx';
 import ContextProvider from '@/context/ContextProvider';
+import { ThemeProvider } from '@/src/components/theme-provider';
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -28,14 +29,15 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fr">
-			<body
-				className={clsx(
-					monstserrat.className,
-					roboto.className,
-					'bg-black text-slate-50 overflow-x-hidden'
-				)}
-			>
-				<ContextProvider>{children}</ContextProvider>
+			<body className={clsx(monstserrat.className, roboto.className)}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<ContextProvider>{children}</ContextProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

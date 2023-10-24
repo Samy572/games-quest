@@ -35,7 +35,7 @@ function MyList() {
 							return (
 								<Card
 									key={id}
-									className="bg-stone-900 hover:bg-stone-800 border-stone-700 transition-all   "
+									className="hover:scale-105 border-stone-700 transition-all   "
 								>
 									<CardHeader>
 										<Image
@@ -48,18 +48,18 @@ function MyList() {
 										/>
 
 										<CardTitle
-											className="text-3xl text-gray-100 font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
+											className="text-3xl overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
 											title={name}
 										>
 											{' '}
 											{name}
 										</CardTitle>
 										<CardDescription>
-											<h3 className="text-xl text-gray-200 ">
+											<h3 className="text-xl  ">
 												<strong>Genres:</strong>
 											</h3>
 											<ul className=" flex justify-between ">
-												<div className="text-gray-200">
+												<div className="">
 													{genres.slice(0, 2).map((genre: { name: string }) => (
 														<li key={genre.name}>{genre.name}</li>
 													))}
@@ -71,7 +71,7 @@ function MyList() {
 									<CardFooter>
 										<Link
 											href={`/game/${id}`}
-											className="text-lime-300  underline"
+											className="text-primary  underline"
 										>
 											See more
 										</Link>

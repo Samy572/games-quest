@@ -10,14 +10,18 @@ const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 	const { handleAddFavoris, listFavorite } = useContext(Context);
 	return (
 		<div className="text-left pt-5 text-4xl">
-			<h2 className="pb-5 text-lime-300">{selectedGameData.name}</h2>
+			<h2 className="pb-5 text-primary">{selectedGameData.name}</h2>
 			<div className="flex  items-center">
 				<span className=" text-xl">Released: {selectedGameData.released}</span>
 			</div>
 			<div className="flex justify-between">
 				<div className="flex items-center gap-1">
 					{selectedGameData?.genres.slice(0, 2).map((genre) => (
-						<Badge variant={'secondary'} key={genre.id} className="w-fit ">
+						<Badge
+							variant={'secondary'}
+							key={genre.id}
+							className="w-fit bg-primary"
+						>
 							{genre.name}
 						</Badge>
 					))}

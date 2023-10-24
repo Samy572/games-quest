@@ -17,10 +17,7 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 			<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
 				{data.map(
 					({ name, background_image, genres, platforms, id }: GameCardType) => (
-						<Card
-							key={id}
-							className="bg-stone-900 border-stone-700 transition-all hover:bg-stone-800 hover:scale-110 "
-						>
+						<Card key={id} className="  transition-all  hover:scale-110 ">
 							<CardHeader>
 								<Image
 									className="h-auto w-auto"
@@ -33,17 +30,17 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 									style={{ width: '100%', height: 'auto' }}
 								/>
 								<CardTitle
-									className="text-3xl text-gray-100 font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
+									className="text-3xl  font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
 									title={name}
 								>
 									{name}
 								</CardTitle>
 								<CardDescription>
-									<h3 className="text-xl text-gray-200 ">
+									<h3 className="text-xl  ">
 										<strong>Genres:</strong>
 									</h3>
 									<ul className=" flex justify-between ">
-										<div className="text-gray-200">
+										<div className="">
 											{genres.slice(0, 2).map((genre: { name: string }) => (
 												<li key={genre.name}>{genre.name}</li>
 											))}
@@ -53,7 +50,10 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 								</CardDescription>
 							</CardHeader>
 							<CardFooter>
-								<Link href={`/game/${id}`} className="text-lime-300  underline">
+								<Link
+									href={`/game/${id}`}
+									className=" cursor-pointer underline text-primary"
+								>
 									See more
 								</Link>
 							</CardFooter>

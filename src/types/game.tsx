@@ -21,5 +21,3 @@ export interface GameCardType {
 	];
 }
 
-// On veut ajouter un jeu si il n'est pas dans notre list
-// si il est dans notre list on ne l'ajoute pas

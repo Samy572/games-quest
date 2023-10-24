@@ -9,13 +9,13 @@ import { useContext } from 'react';
 function Page() {
 	const { handleChange, dataSearchInput, resetInput } = useContext(Context);
 	return (
-		<div className="relative bg-zinc-900">
+		<div className="relative ">
 			<div className="contain flex h-12 justify-center items-center gap-1">
 				<Link onClick={() => resetInput()} href={'/home'}>
 					<ArrowLeft size={20} />
 				</Link>
 				<Input
-					className="rounded-xl h-7 bg-zinc-900  w-80"
+					className="rounded-xl h-7   w-80"
 					placeholder="Search games"
 					autoFocus
 					onChange={(e) => handleChange(e)}
@@ -27,7 +27,7 @@ function Page() {
 					data={dataSearchInput}
 					reset={resetInput}
 					className={
-						'flex flex-col z-30  w-full mx-auto bg-zinc-900 rounded-lg text-white    shadow-md'
+						'flex flex-col z-30  w-full mx-auto  rounded-lg text-primary    shadow-md'
 					}
 				/>
 			) : null}
