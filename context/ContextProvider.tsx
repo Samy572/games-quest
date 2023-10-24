@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Context from '@/context/Context';
 import { MyContextType } from '@/src/types/context';
-import { GameCardType } from '@/src/types/game';
 import useFavoris from '@/hooks/useFavoris';
 
 export default function ContextProvider({
