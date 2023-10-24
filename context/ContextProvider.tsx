@@ -17,7 +17,6 @@ export default function ContextProvider({
 	const [dataSearchInput, setDataSearchInput] = useState([]);
 
 	// Favorite List
-	// const [listFavorite, setListFavorite] = useState<GameCardType[]>([]);
 	// Count for pagination
 	const [count, setCount] = useState(1);
 	const [selectedUrl, setSelectedUrl] = useState('2023');
