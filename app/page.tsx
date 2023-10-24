@@ -16,7 +16,6 @@ export default function Home() {
 			<LeftMenu />
 			<main className=" mt-16 w-[calc(100vw)-320px] lg:ml-[290px] grid-cols-1  mx-auto  pb-14 ">
 				<Title title={title(url)} />
-
 				<DisplayGames data={data} />
 			</main>
 			<Navmenu />

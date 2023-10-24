@@ -28,7 +28,7 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 									alt={name}
 									width={300}
 									height={300}
-									quality={65}
+									quality={15}
 									priority={false}
 									style={{ width: '100%', height: 'auto' }}
 								/>

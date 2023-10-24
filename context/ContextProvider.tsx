@@ -123,8 +123,6 @@ export default function ContextProvider({
 		}
 	}, []);
 
-	// Change page left right
-
 	const contextValue: MyContextType = {
 		url,
 		urlHandler,

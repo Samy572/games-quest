@@ -12,7 +12,7 @@ const Pagination = () => {
 		if (newCount >= 1 && newCount <= 5) setCount(newCount);
 	};
 
-	const isActive = (num: number) => {
+	const isPageActive = (num: number) => {
 		return count === num + 1;
 	};
 
@@ -26,7 +26,7 @@ const Pagination = () => {
 					key={i}
 					onClick={() => setCount(i + 1)}
 					className={clsx(
-						isActive(i) ? '  bg-lime-800' : '',
+						isPageActive(i) ? '  bg-lime-800' : '',
 						'border border-transparent transition-all hover:border-lime-300 '
 					)}
 				>
