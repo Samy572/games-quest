@@ -19,11 +19,10 @@ export const useFavoris = () => {
 			setListFavorite(updatedList);
 			// update du localstorage
 			localStorage.setItem('favoris', JSON.stringify(updatedList));
-		} 
+		}
+		if (!isAlreadyFavorited) {
 			// Si pas en favoris update
-      if(!isAlreadyFavorited){
-        copy.push(gameSelected);
-      }
+			copy.push(gameSelected);
 
 			setListFavorite(copy);
 			// sauvegarde dans le localstorage
