@@ -49,7 +49,7 @@ export const Header = () => {
 						data={dataSearchInput}
 						reset={resetInput}
 						className={
-							'flex flex-col z-40 absolute top-10	border-2 w-full  sm:w-80  lg:w-96    py-2 shadow-md bg-secondary rounded-lg'
+							'flex flex-col z-40 absolute top-10	border-2 w-full  sm:w-80  lg:w-96 shadow-md bg-secondary rounded-lg overflow-hidden'
 						}
 					/>
 				) : null}

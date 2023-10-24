@@ -52,7 +52,7 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 							<CardFooter>
 								<Link
 									href={`/game/${id}`}
-									className=" cursor-pointer underline text-primary"
+									className=" cursor-pointer underline text-primary font-semibold"
 								>
 									See more
 								</Link>

@@ -27,7 +27,7 @@ const DataListMap = ({ data, reset, className }: listMap) => {
 					}) => (
 						<SearchList
 							className={
-								'flex items-center p-[2px] py-2 hover:bg-black text-primary select-none px-3 '
+								'flex items-center  py-2 hover:bg-black text-primary select-none px-3  '
 							}
 							key={id}
 							id={id}
