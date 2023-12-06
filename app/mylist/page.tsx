@@ -35,7 +35,7 @@ function MyList() {
 							return (
 								<Card
 									key={id}
-									className="hover:scale-105 border-stone-700 transition-all   "
+									className="transition-all hover:bg-slate-100  dark:hover:bg-[#121212]   "
 								>
 									<CardHeader>
 										<Image

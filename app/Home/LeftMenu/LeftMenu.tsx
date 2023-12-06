@@ -38,23 +38,24 @@ export const LeftMenu = () => {
 					</h2>
 					{year.map((year) => (
 						<List
+							className="flex w-full justify-between"
 							key={year}
 							Icon={
 								year === '2023' ? (
 									<Trophy className="text-amber-500" />
 								) : (
-									<Flame className="text-red-800" />
+									<Flame className="text-red-800  " />
 								)
 							}
 							onClick={() => handleClick(year)}
-							name={`Popular in ${year}`}
+							name={` Popular in ${year}`}
 							active={selectedUrl === year}
 						/>
 					))}
 					{year.length < 5 ? (
 						<Button
 							variant={'default'}
-							className="mt-5 w-full flex flex-1 relative"
+							className="mt-5 w-full flex flex-1 relative text-white font-bold bg-primary/80"
 							onClick={() => showMoreYear()}
 						>
 							More
@@ -64,7 +65,7 @@ export const LeftMenu = () => {
 						</Button>
 					) : (
 						<Button
-							className="mt-5 w-full flex flex-1 relative"
+							className="mt-5 w-full flex flex-1 relative text-white bg-primary/80"
 							onClick={() => showMoreYear()}
 						>
 							Less

@@ -15,9 +15,12 @@ const DisplayGames = ({ data }: { data: GameCardType[] }) => {
 	return (
 		<div>
 			<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
-				{data.map(
+				{data?.map(
 					({ name, background_image, genres, platforms, id }: GameCardType) => (
-						<Card key={id} className="  transition-all  hover:scale-110 ">
+						<Card
+							key={id}
+							className="  transition-all hover:bg-slate-100  dark:hover:bg-[#121212] "
+						>
 							<CardHeader>
 								<Image
 									className="h-auto w-auto"

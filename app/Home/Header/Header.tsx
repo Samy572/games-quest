@@ -17,7 +17,7 @@ export const Header = () => {
 			className="  w-full top-0 z-10  pt-5 flex items-center justify-around
      transition-all lg:justify-center  relative "
 		>
-			<ModeToggle className={'absolute right-5 cursor-pointer select-none'} />
+			<ModeToggle className={'absolute right-5 cursor-pointer select-none '} />
 			<Logo />
 			<div className="input md:flex items-center relative hidden">
 				<Label

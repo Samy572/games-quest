@@ -26,20 +26,21 @@ export const displayIcon = (name: string, imgPath: string) => {
 			);
 		case 'Xbox':
 		case 'Xbox Series S/X':
+		case 'Xbox One':
 			return (
 				<Image src={`${imgPath}/xbox.svg`} alt="xbox" width={18} height={18} />
 			);
 
-		case 'MacOS':
+		case 'macOS':
 		case 'iOS':
 			return (
 				<Image src={`${imgPath}/mac.svg`} alt="mac os" width={18} height={18} />
 			);
-		case 'Nitendo Switch':
+		case 'Nintendo Switch':
 			return (
 				<Image
 					src={`${imgPath}/switch.svg`}
-					alt="nitendo-switch"
+					alt="nintendo-switch"
 					width={18}
 					height={18}
 				/>

@@ -18,25 +18,28 @@ const Pagination = () => {
 
 	return (
 		<div className="my-10 md:mt-12 w-full flex justify-center gap-2">
-			<Button onClick={() => handlePageClick(-1)}>
-				<ChevronLeft className="" />
+			<Button variant={'outline'} onClick={() => handlePageClick(-1)}>
+				<ChevronLeft />
 			</Button>
 			{Array.from({ length: 5 }, (_, i) => (
 				<Button
 					key={i}
 					onClick={() => setCount(i + 1)}
 					className={clsx(
-						isPageActive(i) ? 'bg-primary' : 'bg-white  border-primary',
-						'border  transition-all  '
+						isPageActive(i)
+							? 'text-white bg-primary dark:bg-[#262626] dark:text-primary '
+							: ' dark:bg-[#121212] text-white bg-[#121212] ',
+						'  transition-all  '
 					)}
 				>
 					{i + 1}
 				</Button>
 			))}
-			<Button onClick={() => handlePageClick(+1)}>
-				<ChevronRight className="" />
+			<Button variant={'outline'} onClick={() => handlePageClick(+1)}>
+				<ChevronRight />
 			</Button>
 		</div>
 	);
 };
 export default Pagination;
+//121212
