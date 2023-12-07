@@ -12,7 +12,7 @@ function Game({ params }: { params: { id: number } }) {
 	const [selectedGameData, setSelectedGameData] =
 		useState<GameCardType | null>();
 	const id = params.id;
-	const urlGameSelected = `https://api.rawg.io/api/games/${id}?key=${process.env.SECRET}`;
+	const urlGameSelected = `https://api.rawg.io/api/games/${id}?key=${process.env.NEXT_PUBLIC_SECRET}`;
 
 	useEffect(() => {
 		const fetchGames = async () => {
