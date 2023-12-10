@@ -2,8 +2,7 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Roboto, Montserrat } from 'next/font/google';
 import { clsx } from 'clsx';
-import ContextProvider from '@/context/ContextProvider';
-import { ThemeProvider } from '@/src/components/theme-provider';
+import Provider from '@/src/utils/Provider';
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -30,14 +29,7 @@ export default function RootLayout({
 	return (
 		<html lang="fr">
 			<body className={clsx(monstserrat.className, roboto.className)}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<ContextProvider>{children}</ContextProvider>
-				</ThemeProvider>
+				<Provider>{children}</Provider>
 			</body>
 		</html>
 	);
