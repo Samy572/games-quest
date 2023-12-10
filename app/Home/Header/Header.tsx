@@ -7,31 +7,21 @@ import DataListMap from './datalistmap';
 import { ModeToggle } from '@/src/components/ui/mode-toggle';
 import { useQuery } from 'react-query';
 import useDebounce from '@/hooks/useDebounce';
-import { useState } from 'react';
+import useSearch from '@/hooks/useSearch';
 
 export const Header = () => {
-	const [searchInput, setSearchInput] = useState('');
+	const { searchInput, handleSearch, searchGames, resetInput } = useSearch();
 	const debounce = useDebounce(searchInput, 300);
 
 	const { data, error, isLoading } = useQuery({
 		queryKey: ['search', debounce],
 		queryFn: () => {
 			if (debounce) {
-				return fetch(
-					`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_SECRET}&search=${searchInput}`
-				).then((res) => res.json());
+				return searchGames();
 			}
 			return { results: [] };
 		},
 	});
-
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setSearchInput(e.target.value);
-	};
-
-	const resetInput = () => {
-		setSearchInput('');
-	};
 
 	if (error) return <div>Error</div>;
 
@@ -51,10 +41,10 @@ export const Header = () => {
 					className="bg-slate-100 rounded-2xl text-black px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white focus:ring focus:ring-primary"
 					type="search"
 					placeholder="Search game"
-					onChange={(e) => handleChange(e)}
+					onChange={(e) => handleSearch(e)}
 					value={searchInput}
 				/>
-				{data?.results.length > 0 && (
+				{data && data?.results.length > 0 && (
 					<button
 						type="button"
 						onClick={() => resetInput()}
@@ -63,7 +53,7 @@ export const Header = () => {
 						<X />
 					</button>
 				)}
-				{data?.results.length > 0 && (
+				{data && data?.results.length > 0 && (
 					<DataListMap
 						data={data.results}
 						reset={resetInput}
@@ -74,4 +64,3 @@ export const Header = () => {
 		</header>
 	);
 };
-       
