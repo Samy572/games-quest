@@ -1,5 +1,4 @@
 'use client';
-import Context from '@/context/Context';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { Navmenu } from '@/src/components/navmenu';
 import {
@@ -11,11 +10,11 @@ import {
 } from '@/src/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import useFavoris from '@/hooks/useFavoris';
 
 function MyList() {
-	const { listFavorite } = useContext(Context);
+	const { listFavorite } = useFavoris();
 	return (
 		<div>
 			{listFavorite.length > 0 && (
