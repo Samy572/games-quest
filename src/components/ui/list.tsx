@@ -5,6 +5,7 @@ const List = ({
 	Icon,
 	onClick,
 	active,
+	title,
 }: {
 	name?: string;
 	className?: string;
@@ -15,6 +16,7 @@ const List = ({
 }) => {
 	return (
 		<li
+			title={title}
 			onClick={onClick}
 			className={clsx(
 				className,

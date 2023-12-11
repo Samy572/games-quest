@@ -25,6 +25,9 @@ const Description = ({
 					variant={'outline'}
 					className="mt-5"
 					onClick={() => setIsShowMore(!isShowMore)}
+					aria-label='Show less description'
+					tabIndex={0}
+					
 				>
 					show less
 				</Button>
@@ -33,6 +36,8 @@ const Description = ({
 					<Button
 						variant={'outline'}
 						className="mt-5"
+						aria-label='Show more description'
+						tabIndex={0}
 						onClick={() => setIsShowMore(!isShowMore)}
 					>
 						show more

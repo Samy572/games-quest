@@ -1,5 +1,5 @@
 'use client';
-import DisplayGames from './Home/displaygames';
+import DisplayGames from './Home/display';
 import { LeftMenu } from './Home/LeftMenu/LeftMenu';
 import { Header } from './Home/Header/Header';
 import { Navmenu } from '../src/components/navmenu';

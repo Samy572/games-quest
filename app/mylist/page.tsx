@@ -84,7 +84,7 @@ function MyList() {
 				<div className=" flex justify-center items-center pt-12 px-5 selection:bg-primary">
 					<h2 className="text-3xl">
 						Add games to your collection{' '}
-						<Link className="underline text-lime-300" href={'/home'}>
+						<Link className="underline text-primary" href={'/home'}>
 							here
 						</Link>
 					</h2>
