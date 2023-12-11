@@ -9,10 +9,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { GameCardType } from '@/src/types/game';
-import Pagination from './pagination';
 import Loader from '@/src/components/ui/loader';
 import useDisplayGame from '@/hooks/useDisplayGame';
-import { useState } from 'react';
 import Title from '@/src/components/title';
 type Props = {
 	selectedUrl: string;
