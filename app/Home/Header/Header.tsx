@@ -37,16 +37,16 @@ export const Header = () => {
 			<ModeToggle className={'absolute right-5 cursor-pointer select-none '} />
 			<Logo />
 			<div className="input md:flex items-center relative hidden">
-				<Label
+				<label
 					htmlFor="search"
-					className="absolute left-0 bottom-2.5 px-2 text-sm text-black z-10 font-bold"
+					className="absolute left-0 bottom-2.5 px-2 text-sm text-foreground z-10 font-bold"
+					title="Search "
 				>
 					<Search size={16} />
-				</Label>
+				</label>
 				<Input
 					id="search"
-					className="bg-slate-100 rounded-2xl text-black px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white focus:ring focus:ring-primary"
-					type="search"
+					className="dark:bg-neutral-800 rounded-2xl transition-all text-foreground px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white ring-2 ring-primary ring-inset focus:"
 					placeholder="Search game"
 					onChange={(e) => handleSearch(e)}
 					value={searchInput}
@@ -55,7 +55,7 @@ export const Header = () => {
 					<button
 						type="button"
 						onClick={() => resetInput()}
-						className="absolute right-2 bottom-1.5 text-black"
+						className="absolute right-2 bottom-1.5 text-foreground"
 					>
 						<X />
 					</button>

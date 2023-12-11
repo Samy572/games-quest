@@ -17,14 +17,14 @@ const Displayplatforms = ({
 	img: string;
 }) => {
 	return (
-		<div className="flex text-sm ">
+		<ul className="flex text-sm ">
 			{platforms &&
 				platforms
 					.slice(0, 2)
 					?.map(({ platform: { id, name } }) => (
 						<List title={name} key={id} Icon={displayIcon(name, img)} />
 					))}
-		</div>
+		</ul>
 	);
 };
 export default Displayplatforms;

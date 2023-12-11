@@ -10,13 +10,13 @@ const Favoris = ({
 	description: string;
 }) => {
 	return (
-		<div
+		<button
 			onClick={onClick}
 			className="flex items-center hover:underline cursor-pointer"
 		>
 			<span className="text-lg mr-2 ">{description}</span>
 			<Image src={img} alt="Add to favoris" width={20} height={20} />
-		</div>
+		</button>
 	);
 };
 export default Favoris;

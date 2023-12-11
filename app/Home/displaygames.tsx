@@ -20,7 +20,6 @@ type Props = {
 	setPageIndex: (num: number) => void;
 };
 const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
-	// const [pageIndex, setPageIndex] = useState(1);
 	const { games, error, isLoading } = useDisplayGame({
 		selectedUrl,
 		pageIndex,
@@ -70,20 +69,21 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 										<h3 className="text-xl  ">
 											<strong>Genres:</strong>
 										</h3>
-										<ul className=" flex justify-between ">
-											<div className="">
+										<div className=" flex justify-between ">
+											<ul>
 												{genres.slice(0, 2).map((genre: { name: string }) => (
 													<li key={genre.name}>{genre.name}</li>
 												))}
-											</div>
+											</ul>
 											<Displayplatforms platforms={platforms} img="img" />
-										</ul>
+										</div>
 									</CardDescription>
 								</CardHeader>
 								<CardFooter>
 									<Link
 										href={`/game/${id}`}
 										className=" cursor-pointer underline text-primary font-semibold"
+										title={'See more details for ' + name }
 									>
 										See more
 									</Link>

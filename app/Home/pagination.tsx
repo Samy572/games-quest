@@ -22,6 +22,9 @@ const Pagination = ({ pageIndex, setPageIndex }: Props) => {
 				className="hover:bg-primary hover:text-white"
 				variant={'outline'}
 				onClick={() => handlePageClick(-1)}
+				aria-label="previous"
+				disabled={pageIndex === 1}
+				tabIndex={0}
 			>
 				<ChevronLeft />
 			</Button>
@@ -43,6 +46,9 @@ const Pagination = ({ pageIndex, setPageIndex }: Props) => {
 				variant={'outline'}
 				className="hover:bg-primary hover:text-white"
 				onClick={() => handlePageClick(+1)}
+				aria-label="next"
+				disabled={pageIndex === 5}
+				tabIndex={0}
 			>
 				<ChevronRight />
 			</Button>
