@@ -8,29 +8,36 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import Displayplatforms from '@/src/components/displayplatforms';
-import { useQuery } from 'react-query';
 import { GameCardType } from '@/src/types/game';
 import Pagination from './pagination';
 import Loader from '@/src/components/ui/loader';
-
-const DisplayGames = () => {
-	const { data, error, isLoading } = useQuery({
-		queryKey: ['games'],
-		queryFn: async () => {
-			return await fetch(
-				`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_SECRET}`
-			).then((res) => res.json());
-		},
+import useDisplayGame from '@/hooks/useDisplayGame';
+import { useState } from 'react';
+import Title from '@/src/components/title';
+type Props = {
+	selectedUrl: string;
+	pageIndex: number;
+	setPageIndex: (num: number) => void;
+};
+const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
+	// const [pageIndex, setPageIndex] = useState(1);
+	const { games, error, isLoading } = useDisplayGame({
+		selectedUrl,
+		pageIndex,
+		setPageIndex,
 	});
 
 	if (isLoading) return <Loader />;
 	if (error) return <div>Error</div>;
-
+	console.log(games);
 	return (
 		<div>
+			<Title label={'Popular in '} selectedUrl={selectedUrl} />
 			<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
-				{data?.results.length > 0 &&
-					data?.results.map(
+				{games &&
+					games.results &&
+					games.results.length > 0 &&
+					games.results.map(
 						({
 							name,
 							background_image,
@@ -51,7 +58,7 @@ const DisplayGames = () => {
 										height={300}
 										quality={15}
 										priority={false}
-										style={{ width: '100%', height: 'auto' }}
+										style={{ width: '400px', height: '200px' }}
 									/>
 									<CardTitle
 										className="text-3xl  font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
@@ -85,8 +92,6 @@ const DisplayGames = () => {
 						)
 					)}
 			</div>
-
-			{data.length >= 15 && <Pagination />}
 		</div>
 	);
 };
