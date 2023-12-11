@@ -27,7 +27,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fr">
+		<html lang="en">
 			<body className={clsx(monstserrat.className, roboto.className)}>
 				<Provider>{children}</Provider>
 			</body>

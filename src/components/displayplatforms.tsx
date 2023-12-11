@@ -22,7 +22,7 @@ const Displayplatforms = ({
 				platforms
 					.slice(0, 2)
 					?.map(({ platform: { id, name } }) => (
-						<List key={id} Icon={displayIcon(name, img)} name={name} />
+						<List title={name} key={id} Icon={displayIcon(name, img)} />
 					))}
 		</div>
 	);

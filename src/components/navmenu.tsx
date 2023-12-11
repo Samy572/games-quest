@@ -5,7 +5,7 @@ export const Navmenu = () => {
 	return (
 		<div>
 			<ul className="lg:hidden h-12 text-xs  border-t border-slate-400 bg-black text-primary fixed bottom-0 left-0 right-0 flex items-center justify-evenly opacity-90 ">
-				<Link href={'/home'}>
+				<Link href={'/home'} >
 					<span className="flex justify-center">
 						<Home size={20} />
 					</span>

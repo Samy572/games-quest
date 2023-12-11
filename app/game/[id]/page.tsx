@@ -1,5 +1,5 @@
 'use client';
-import { Logo } from '@/src/components/Logo';
+import { Logo } from '@/src/components/logo';
 import { Navmenu } from '@/src/components/navmenu';
 import Image from 'next/image';
 import Body from '../body';
@@ -7,6 +7,8 @@ import Description from '../description';
 import { LeftMenu } from '@/app/Home/LeftMenu/LeftMenu';
 import { useQuery } from 'react-query';
 import Loader from '@/src/components/ui/loader';
+import Home from '@/app/Home/LeftMenu/home';
+import MyListMenu from '@/app/Home/LeftMenu/mylistmenu';
 
 function Game({ params }: { params: { id: number } }) {
 	const id = params.id;
@@ -34,7 +36,10 @@ function Game({ params }: { params: { id: number } }) {
 	return (
 		<div className="px-4 select-none pb-14 ">
 			<Logo className="pt-5" />
-			<LeftMenu />
+			<nav className="hidden lg:block fixed top-44 left-10 right-0">
+				<Home />
+				<MyListMenu />
+			</nav>
 			{data && (
 				<div className="pt-5  flex justify-center  ">
 					<div className="flex flex-col w-[45rem] md:w-[34rem] xl:w-[45rem] ">

@@ -1,14 +1,15 @@
 'use client';
 import List from '../../../src/components/ui/list';
-import Context from '../../../context/Context';
 import { ChevronDown, ChevronUp, Flame, Sparkles, Trophy } from 'lucide-react';
-import { useContext, useState } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '@/src/components/ui/button';
-
-export const LeftMenu = () => {
-	const { handleClick, selectedUrl } = useContext(Context);
-	// const [selectedUrl, setSelectedUrl] = useState('2023');
+import MyListMenu from './mylistmenu';
+import Home from './home';
+type Props = {
+	selectedUrl: string;
+	setSelectedUrl: React.Dispatch<React.SetStateAction<string>>;
+};
+export const LeftMenu = ({ selectedUrl, setSelectedUrl }: Props) => {
 	const [year, setYear] = useState(['2023', '2022', '2021']);
 
 	const showMoreYear = () => {
@@ -25,13 +26,7 @@ export const LeftMenu = () => {
 	return (
 		<nav className=" md:cols-span-1 md:w-[320px]  pt-16 w-fit transition-all hidden lg:flex pl-10 select-none overflow-y-auto max-h-[700px] scroll fixed">
 			<div className="navigation ">
-				<ul>
-					<h2 className="text-2xl pb-14">
-						<Link href={'/home'}>
-							<strong>Home</strong>
-						</Link>
-					</h2>
-				</ul>
+				<Home />
 				<ul>
 					<h2 className="text-xl pb-5">
 						<strong>Top</strong>
@@ -47,7 +42,9 @@ export const LeftMenu = () => {
 									<Flame className="text-red-800  " />
 								)
 							}
-							onClick={() => handleClick(year)}
+							onClick={() => {
+								setSelectedUrl(year);
+							}}
 							name={` Popular in ${year}`}
 							active={selectedUrl === year}
 						/>
@@ -75,17 +72,7 @@ export const LeftMenu = () => {
 						</Button>
 					)}
 				</ul>
-				<ul>
-					<h2 className="text-xl pb-5 mt-5">
-						<strong> My List</strong>{' '}
-					</h2>
-					<Link href={'/mylist'}>
-						<List
-							Icon={<Sparkles className="text-amber-500	" />}
-							name="My favorites list"
-						/>
-					</Link>
-				</ul>
+				<MyListMenu />
 			</div>
 		</nav>
 	);

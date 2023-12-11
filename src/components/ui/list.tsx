@@ -11,6 +11,7 @@ const List = ({
 	Icon: JSX.Element | undefined;
 	onClick?: () => void;
 	active?: boolean;
+	title?: string;
 }) => {
 	return (
 		<li

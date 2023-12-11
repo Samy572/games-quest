@@ -3,11 +3,10 @@ import { GameCardType } from '@/src/types/game';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { Badge } from '@/src/components/ui/badge';
 import Favoris from './favoris';
-import Context from '@/context/Context';
-import { useContext } from 'react';
+import useFavoris from '@/hooks/useFavoris';
 
 const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
-	// const { handleAddFavoris, listFavorite } = useContext(Context);
+	const { handleAddFavoris, listFavorite } = useFavoris();
 	console.log('selectedGameData :', selectedGameData);
 	return (
 		<div className="text-left pt-5 text-4xl">
@@ -37,7 +36,7 @@ const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 					img="../img"
 				/>
 			</div>
-			{/* <Favoris
+			<Favoris
 				onClick={() => handleAddFavoris(selectedGameData)}
 				description={
 					listFavorite.some((item: any) => item.id === selectedGameData.id)
@@ -49,7 +48,7 @@ const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 						? '../img/Star_full.svg'
 						: '../img/Star_empty.svg'
 				}
-			/> */}
+			/>
 		</div>
 	);
 };

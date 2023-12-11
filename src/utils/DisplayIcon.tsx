@@ -14,6 +14,7 @@ export const displayIcon = (name: string, imgPath: string) => {
 				/>
 			);
 		case 'PlayStation':
+		case 'PlayStation 3':
 		case 'PlayStation 5':
 		case 'PlayStation 4':
 			return (
@@ -25,6 +26,7 @@ export const displayIcon = (name: string, imgPath: string) => {
 				/>
 			);
 		case 'Xbox':
+		case 'Xbox 360':
 		case 'Xbox Series S/X':
 		case 'Xbox One':
 			return (
@@ -67,6 +69,16 @@ export const displayIcon = (name: string, imgPath: string) => {
 				<Image
 					src={`${imgPath}/gamecube.svg`}
 					alt="GameCube"
+					width={18}
+					height={18}
+				/>
+			);
+		case 'Linux':
+		default:
+			return (
+				<Image
+					src={`${imgPath}/linux.svg`}
+					alt="linux"
 					width={18}
 					height={18}
 				/>

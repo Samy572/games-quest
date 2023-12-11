@@ -1,22 +1,24 @@
 'use client';
-import Title from '../src/components/title';
-import DisplayGames from './Home/DisplayGames';
+import DisplayGames from './Home/displaygames';
 import { LeftMenu } from './Home/LeftMenu/LeftMenu';
-import { useContext } from 'react';
-import Context from '@/context/Context';
 import { Header } from './Home/Header/Header';
 import { Navmenu } from '../src/components/navmenu';
-import { title } from '@/src/utils/GetTitle';
+import { useState } from 'react';
+import Pagination from './Home/pagination';
 export default function Home() {
-	const { url, data } = useContext(Context);
-
+	const [selectedUrl, setSelectedUrl] = useState('2023');
+	const [pageIndex, setPageIndex] = useState(1);
 	return (
 		<>
 			<Header />
-			<LeftMenu />
+			<LeftMenu selectedUrl={selectedUrl} setSelectedUrl={setSelectedUrl} />
 			<main className=" mt-16 w-[calc(100vw)-320px] lg:ml-[290px] grid-cols-1  mx-auto  pb-14 selection:bg-primary ">
-				<Title title={title(url)} />
-				<DisplayGames data={data} />
+				<DisplayGames
+					selectedUrl={selectedUrl}
+					pageIndex={pageIndex}
+					setPageIndex={setPageIndex}
+				/>
+				<Pagination pageIndex={pageIndex} setPageIndex={setPageIndex} />
 			</main>
 			<Navmenu />
 		</>

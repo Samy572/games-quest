@@ -11,7 +11,13 @@ function Page() {
 	const { searchGames, handleSearch, searchInput, resetInput } = useSearch();
 	const debounce = useDebounce(searchInput, 300);
 	const { data, error, isLoading } = useQuery({
-		queryKey: ['search', debounce],
+		queryKey: [
+			'search',
+			debounce,
+			{
+				enabled: false,
+			},
+		],
 		queryFn: () => {
 			if (debounce) {
 				return searchGames();

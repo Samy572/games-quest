@@ -16,7 +16,7 @@ import useFavoris from '@/hooks/useFavoris';
 function MyList() {
 	const { listFavorite } = useFavoris();
 	return (
-		<div>
+		<div className="selection:bg-primary">
 			{listFavorite.length > 0 && (
 				<div className="h-28 flex items-center  ">
 					<Link className="ml-10 mr-10" href={'/home'}>
@@ -41,7 +41,7 @@ function MyList() {
 											src={background_image}
 											alt={name}
 											width={400}
-											height={400}
+											height={350}
 											priority={false}
 											quality={65}
 										/>
@@ -81,7 +81,7 @@ function MyList() {
 					)}
 				</div>
 			) : (
-				<div className=" flex justify-center items-center pt-12 px-5">
+				<div className=" flex justify-center items-center pt-12 px-5 selection:bg-primary">
 					<h2 className="text-3xl">
 						Add games to your collection{' '}
 						<Link className="underline text-lime-300" href={'/home'}>
