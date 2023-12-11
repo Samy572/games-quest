@@ -83,7 +83,7 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 									<Link
 										href={`/game/${id}`}
 										className=" cursor-pointer underline text-primary font-semibold"
-										title={'See more details for ' + name }
+										title={'See more details for ' + name}
 									>
 										See more
 									</Link>
