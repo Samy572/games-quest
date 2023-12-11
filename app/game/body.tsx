@@ -3,32 +3,38 @@ import { GameCardType } from '@/src/types/game';
 import Displayplatforms from '@/src/components/displayplatforms';
 import { Badge } from '@/src/components/ui/badge';
 import Favoris from './favoris';
-import Context from '@/context/Context';
-import { useContext } from 'react';
+import useFavoris from '@/hooks/useFavoris';
 
 const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
-	const { handleAddFavoris, listFavorite } = useContext(Context);
+	const { handleAddFavoris, listFavorite } = useFavoris();
+	console.log('selectedGameData :', selectedGameData);
 	return (
 		<div className="text-left pt-5 text-4xl">
 			<h2 className="pb-5 text-primary font-semibold">
 				{selectedGameData.name}
 			</h2>
 			<div className="flex  items-center">
-				<span className=" text-xl">Released: {selectedGameData.released}</span>
+				<span className=" text-xl">
+					Released: {selectedGameData && selectedGameData.released}
+				</span>
 			</div>
 			<div className="flex justify-between">
 				<div className="flex items-center gap-1">
-					{selectedGameData?.genres.slice(0, 2).map((genre) => (
-						<Badge
-							variant={'secondary'}
-							key={genre.id}
-							className="w-fit text-primary"
-						>
-							{genre.name}
-						</Badge>
-					))}
+					{selectedGameData &&
+						selectedGameData.genres.slice(0, 2).map((genre) => (
+							<Badge
+								variant={'secondary'}
+								key={genre.id}
+								className="w-fit text-primary"
+							>
+								{genre.name}
+							</Badge>
+						))}
 				</div>
-				<Displayplatforms platforms={selectedGameData.platforms} img="../img" />
+				<Displayplatforms
+					platforms={selectedGameData && selectedGameData.platforms}
+					img="../img"
+				/>
 			</div>
 			<Favoris
 				onClick={() => handleAddFavoris(selectedGameData)}

@@ -21,7 +21,8 @@ export default function ContextProvider({
 	const [selectedUrl, setSelectedUrl] = useState('2023');
 
 	// url to fetch
-	const APIKEY = process.env.SECRET;
+	const APIKEY = process.env.NEXT_PUBLIC_SECRET;
+	console.log(APIKEY);
 	const baseApiUrl = 'https://api.rawg.io/api/games';
 	const defaultUrlParams = `?page=${count}&page_size=15&key=${APIKEY}&ordering=-added`;
 	const searchGames = `${baseApiUrl}?key=${APIKEY}&search=${inputValue}`;

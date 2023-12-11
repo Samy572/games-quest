@@ -1,40 +1,50 @@
-import Context from '@/context/Context';
 import { Button } from '@/src/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useContext } from 'react';
 import { clsx } from 'clsx';
 
-const Pagination = () => {
-	const { count, setCount } = useContext(Context);
-
+type Props = {
+	pageIndex: number;
+	setPageIndex: (num: number) => void;
+};
+const Pagination = ({ pageIndex, setPageIndex }: Props) => {
 	const handlePageClick = (num: number) => {
-		const newCount = count + num;
-		if (newCount >= 1 && newCount <= 5) setCount(newCount);
+		const newCount = pageIndex + num;
+		if (newCount >= 1 && newCount <= 5) setPageIndex(newCount);
 	};
 
 	const isPageActive = (num: number) => {
-		return count === num + 1;
+		return pageIndex === num + 1;
 	};
 
 	return (
 		<div className="my-10 md:mt-12 w-full flex justify-center gap-2">
-			<Button onClick={() => handlePageClick(-1)}>
-				<ChevronLeft className="" />
+			<Button
+				className="hover:bg-primary hover:text-white"
+				variant={'outline'}
+				onClick={() => handlePageClick(-1)}
+			>
+				<ChevronLeft />
 			</Button>
 			{Array.from({ length: 5 }, (_, i) => (
 				<Button
 					key={i}
-					onClick={() => setCount(i + 1)}
+					onClick={() => setPageIndex(i + 1)}
 					className={clsx(
-						isPageActive(i) ? 'bg-primary' : 'bg-white  border-primary',
-						'border  transition-all  '
+						isPageActive(i)
+							? 'text-white bg-primary dark:bg-[#262626] dark:text-primary '
+							: ' dark:bg-[#121212] text-#262626 bg-white] hover:bg-primary hover:text-white',
+						'  transition-all  '
 					)}
 				>
 					{i + 1}
 				</Button>
 			))}
-			<Button onClick={() => handlePageClick(+1)}>
-				<ChevronRight className="" />
+			<Button
+				variant={'outline'}
+				className="hover:bg-primary hover:text-white"
+				onClick={() => handlePageClick(+1)}
+			>
+				<ChevronRight />
 			</Button>
 		</div>
 	);

@@ -1,14 +1,15 @@
 'use client';
 import List from '../../../src/components/ui/list';
-import Context from '../../../context/Context';
 import { ChevronDown, ChevronUp, Flame, Sparkles, Trophy } from 'lucide-react';
-import { useContext, useState } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '@/src/components/ui/button';
-
-export const LeftMenu = () => {
-	const { handleClick, selectedUrl } = useContext(Context);
-	// const [selectedUrl, setSelectedUrl] = useState('2023');
+import MyListMenu from './mylistmenu';
+import Home from './home';
+type Props = {
+	selectedUrl: string;
+	setSelectedUrl: React.Dispatch<React.SetStateAction<string>>;
+};
+export const LeftMenu = ({ selectedUrl, setSelectedUrl }: Props) => {
 	const [year, setYear] = useState(['2023', '2022', '2021']);
 
 	const showMoreYear = () => {
@@ -25,36 +26,33 @@ export const LeftMenu = () => {
 	return (
 		<nav className=" md:cols-span-1 md:w-[320px]  pt-16 w-fit transition-all hidden lg:flex pl-10 select-none overflow-y-auto max-h-[700px] scroll fixed">
 			<div className="navigation ">
-				<ul>
-					<h2 className="text-2xl pb-14">
-						<Link href={'/home'}>
-							<strong>Home</strong>
-						</Link>
-					</h2>
-				</ul>
+				<Home />
 				<ul>
 					<h2 className="text-xl pb-5">
 						<strong>Top</strong>
 					</h2>
 					{year.map((year) => (
 						<List
+							className="flex w-full justify-between"
 							key={year}
 							Icon={
 								year === '2023' ? (
 									<Trophy className="text-amber-500" />
 								) : (
-									<Flame className="text-red-800" />
+									<Flame className="text-red-800  " />
 								)
 							}
-							onClick={() => handleClick(year)}
-							name={`Popular in ${year}`}
+							onClick={() => {
+								setSelectedUrl(year);
+							}}
+							name={` Popular in ${year}`}
 							active={selectedUrl === year}
 						/>
 					))}
 					{year.length < 5 ? (
 						<Button
 							variant={'default'}
-							className="mt-5 w-full flex flex-1 relative"
+							className="mt-5 w-full flex flex-1 relative text-white font-bold bg-primary/80"
 							onClick={() => showMoreYear()}
 						>
 							More
@@ -64,7 +62,7 @@ export const LeftMenu = () => {
 						</Button>
 					) : (
 						<Button
-							className="mt-5 w-full flex flex-1 relative"
+							className="mt-5 w-full flex flex-1 relative text-white bg-primary/80"
 							onClick={() => showMoreYear()}
 						>
 							Less
@@ -74,17 +72,7 @@ export const LeftMenu = () => {
 						</Button>
 					)}
 				</ul>
-				<ul>
-					<h2 className="text-xl pb-5 mt-5">
-						<strong> My List</strong>{' '}
-					</h2>
-					<Link href={'/mylist'}>
-						<List
-							Icon={<Sparkles className="text-amber-500	" />}
-							name="My favorites list"
-						/>
-					</Link>
-				</ul>
+				<MyListMenu />
 			</div>
 		</nav>
 	);
