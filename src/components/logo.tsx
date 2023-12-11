@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import { Swords } from 'lucide-react';
 import Link from 'next/link';
 
-const Logo = ({ className }: { className?: string }) => {
+export const Logo = ({ className }: { className?: string }) => {
 	return (
 		<div className={className}>
 			<h1
@@ -12,11 +12,9 @@ const Logo = ({ className }: { className?: string }) => {
 			>
 				<Link className="min-w-fit" href={'/home'}>
 					G<Swords size={20} className="inline " />
-					mes Quest
+					mes
 				</Link>
 			</h1>
 		</div>
 	);
 };
-
-export default Logo;
