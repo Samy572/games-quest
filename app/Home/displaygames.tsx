@@ -8,35 +8,29 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import Displayplatforms from '@/src/components/displayplatforms';
+import { useQuery } from 'react-query';
 import { GameCardType } from '@/src/types/game';
 import Pagination from './pagination';
 import Loader from '@/src/components/ui/loader';
-import useDisplayGame from '@/hooks/useDisplayGame';
-import { useState } from 'react';
-import Title from '@/src/components/title';
-type Props = {
-	selectedUrl: string;
-	pageIndex: number;
-	setPageIndex: (num: number) => void;
-};
-const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
-	const { games, error, isLoading } = useDisplayGame({
-		selectedUrl,
-		pageIndex,
-		setPageIndex,
+
+const DisplayGames = () => {
+	const { data, error, isLoading } = useQuery({
+		queryKey: ['games'],
+		queryFn: async () => {
+			return await fetch(
+				`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_SECRET}`
+			).then((res) => res.json());
+		},
 	});
 
 	if (isLoading) return <Loader />;
 	if (error) return <div>Error</div>;
-	console.log(games);
+
 	return (
 		<div>
-			<Title label={'Popular in '} selectedUrl={selectedUrl} />
 			<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
-				{games &&
-					games.results &&
-					games.results.length > 0 &&
-					games.results.map(
+				{data?.results.length > 0 &&
+					data?.results.map(
 						({
 							name,
 							background_image,
@@ -57,7 +51,7 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 										height={300}
 										quality={15}
 										priority={false}
-										style={{ width: '400px', height: '200px' }}
+										style={{ width: '100%', height: 'auto' }}
 									/>
 									<CardTitle
 										className="text-3xl  font-roboto overflow-hidden truncate whitespace-nowrap xl:w-[250px] w-[250px] "
@@ -69,21 +63,20 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 										<h3 className="text-xl  ">
 											<strong>Genres:</strong>
 										</h3>
-										<div className=" flex justify-between ">
-											<ul>
+										<ul className=" flex justify-between ">
+											<div className="">
 												{genres.slice(0, 2).map((genre: { name: string }) => (
 													<li key={genre.name}>{genre.name}</li>
 												))}
-											</ul>
+											</div>
 											<Displayplatforms platforms={platforms} img="img" />
-										</div>
+										</ul>
 									</CardDescription>
 								</CardHeader>
 								<CardFooter>
 									<Link
 										href={`/game/${id}`}
 										className=" cursor-pointer underline text-primary font-semibold"
-										title={'See more details for ' + name}
 									>
 										See more
 									</Link>
@@ -92,6 +85,8 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 						)
 					)}
 			</div>
+
+			{data.length >= 15 && <Pagination />}
 		</div>
 	);
 };
