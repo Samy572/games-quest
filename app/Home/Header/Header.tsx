@@ -1,14 +1,12 @@
 'use client';
 import { Search, X } from 'lucide-react';
-import { Label } from '../../../src/components/ui/label';
 import { Input } from '../../../src/components/ui/input';
-import { Logo } from '../../../src/components/logo';
 import DataListMap from './datalistmap';
 import { ModeToggle } from '@/src/components/ui/mode-toggle';
 import { useQuery } from 'react-query';
 import useDebounce from '@/hooks/useDebounce';
 import useSearch from '@/hooks/useSearch';
-import Title from '@/src/components/title';
+import Logo from '@/src/components/Logo';
 
 export const Header = () => {
 	const { searchInput, handleSearch, searchGames, resetInput } = useSearch();
