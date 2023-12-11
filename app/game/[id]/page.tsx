@@ -1,5 +1,5 @@
 'use client';
-import { Logo } from '@/src/components/logo';
+import Logo from '@/src/components/logo-title';
 import { Navmenu } from '@/src/components/navmenu';
 import Image from 'next/image';
 import Body from '../body';
