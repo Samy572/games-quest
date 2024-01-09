@@ -4,7 +4,6 @@ import { Navmenu } from '@/src/components/navmenu';
 import Image from 'next/image';
 import Body from '../body';
 import Description from '../description';
-import { LeftMenu } from '@/app/Home/LeftMenu/LeftMenu';
 import { useQuery } from 'react-query';
 import Loader from '@/src/components/ui/loader';
 import Home from '@/app/Home/LeftMenu/home';
@@ -17,7 +16,6 @@ function Game({ params }: { params: { id: number } }) {
 		try {
 			const response = await fetch(urlGameSelected);
 			const data = await response.json();
-			console.log(data);
 			return data;
 		} catch (error) {
 			return console.error('error :', error);
@@ -35,7 +33,7 @@ function Game({ params }: { params: { id: number } }) {
 
 	return (
 		<div className="px-4 select-none pb-14 ">
-			<Logo className="pt-5" />
+			<Logo className="pt-5  lg:text-left" />
 			<nav className="hidden lg:block fixed top-44 left-10 right-0">
 				<Home />
 				<MyListMenu />

@@ -5,6 +5,7 @@ export interface GameCardType {
 	released?: string;
 	id: number;
 	isChecked: false;
+	website: string;
 	genres: [
 		{
 			name: string;
