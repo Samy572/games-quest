@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Pagination from './Home/pagination';
 import { Paginations } from '@/src/components/ui/paginations';
 export default function Home() {
-	const [selectedUrl, setSelectedUrl] = useState('2023');
+	const [selectedUrl, setSelectedUrl] = useState('2024');
 	const [pageIndex, setPageIndex] = useState(1);
 	return (
 		<>

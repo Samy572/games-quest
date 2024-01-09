@@ -18,7 +18,6 @@ type Props = {
 	setPageIndex: (num: number) => void;
 };
 const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
-	// const [pageIndex, setPageIndex] = useState(1);
 	const { games, error, isLoading } = useDisplayGame({
 		selectedUrl,
 		pageIndex,
@@ -54,8 +53,8 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 										alt={name}
 										width={300}
 										height={300}
-										quality={15}
-										priority={false}
+										quality={25}
+										priority={true}
 										style={{ width: '400px', height: '200px' }}
 									/>
 									<CardTitle

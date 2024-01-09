@@ -44,7 +44,7 @@ export const Header = () => {
 				</label>
 				<Input
 					id="search"
-					className="dark:bg-neutral-800 rounded-2xl transition-all text-foreground px-7 w-32 sm:w-80 hover:bg-white lg:w-96 focus:bg-white ring-2 ring-primary ring-inset focus:"
+					className="dark:bg-neutral-800 rounded-2xl border focus:border-none dark:border-none text-foreground px-7 w-32 sm:w-80  lg:w-96  focus:ring-primary"
 					placeholder="Search game"
 					onChange={(e) => handleSearch(e)}
 					value={searchInput}
@@ -62,7 +62,7 @@ export const Header = () => {
 					<DataListMap
 						data={data.results}
 						reset={resetInput}
-						className="flex flex-col z-40 absolute top-10 border-2 w-full sm:w-80 lg:w-96 shadow-md bg-secondary rounded-lg overflow-hidden"
+						className=" flex flex-col z-40 absolute top-10 border-2 border-primary w-full sm:w-80 lg:w-96 shadow-md bg-secondary rounded-lg overflow-hidden"
 					/>
 				)}
 			</div>

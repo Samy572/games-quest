@@ -10,7 +10,7 @@ type Props = {
 	setSelectedUrl: React.Dispatch<React.SetStateAction<string>>;
 };
 export const LeftMenu = ({ selectedUrl, setSelectedUrl }: Props) => {
-	const [year, setYear] = useState(['2023', '2022', '2021']);
+	const [year, setYear] = useState(['2024', '2023', '2022', '2021']);
 
 	const showMoreYear = () => {
 		const copy = [...year];
@@ -36,7 +36,7 @@ export const LeftMenu = ({ selectedUrl, setSelectedUrl }: Props) => {
 							className="flex w-full justify-between"
 							key={year}
 							Icon={
-								year === '2023' ? (
+								year === '2024' ? (
 									<Trophy className="text-amber-500" />
 								) : (
 									<Flame className="text-red-800  " />
