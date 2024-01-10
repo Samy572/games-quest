@@ -29,7 +29,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={clsx(monstserrat.className, roboto.className)}>
+			<body
+				suppressHydrationWarning={true}
+				className={clsx(monstserrat.className)}
+			>
 				<Provider>{children}</Provider>
 			</body>
 		</html>

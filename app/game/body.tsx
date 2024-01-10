@@ -10,7 +10,6 @@ import { ArrowUpRight } from 'lucide-react';
 
 const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 	const { handleAddFavoris, listFavorite } = useFavoris();
-	console.log('selectedGameData :', selectedGameData);
 	const website = selectedGameData.website;
 
 	return (
