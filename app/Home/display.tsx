@@ -12,12 +12,19 @@ import { GameCardType } from '@/src/types/game';
 import Loader from '@/src/components/ui/loader';
 import useDisplayGame from '@/hooks/useDisplayGame';
 import Title from '@/src/components/title';
+import SwitchYears from '@/src/components/switchyears';
 type Props = {
 	selectedUrl: string;
 	pageIndex: number;
 	setPageIndex: (num: number) => void;
+	setSelectedUrl: (str: string) => void;
 };
-const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
+const DisplayGames = ({
+	selectedUrl,
+	pageIndex,
+	setPageIndex,
+	setSelectedUrl,
+}: Props) => {
 	const { games, error, isLoading } = useDisplayGame({
 		selectedUrl,
 		pageIndex,
@@ -26,10 +33,32 @@ const DisplayGames = ({ selectedUrl, pageIndex, setPageIndex }: Props) => {
 
 	if (isLoading) return <Loader />;
 	if (error) return <div>Error</div>;
-	console.log(games);
+
+	const switchUp = (selectedUrl: string) => {
+		const copySelectedUrl = parseInt(selectedUrl);
+		if (copySelectedUrl >= 2024) {
+			return setSelectedUrl('2023');
+		}
+		if (copySelectedUrl !== 2024) {
+			return setSelectedUrl(String(copySelectedUrl + 1));
+		}
+	};
+
+	const switchDown = (selectedUrl: string) => {
+		const copySelectedUrl = parseInt(selectedUrl);
+		setSelectedUrl(String(copySelectedUrl - 1));
+	};
+
 	return (
 		<div>
-			<Title label={'Popular in '} selectedUrl={selectedUrl} />
+			<div className="relative">
+				<Title label={'Popular in '} selectedUrl={selectedUrl} />
+				<SwitchYears
+					className="absolute top-0 gap-y-1 right-10 flex flex-col lg:hidden"
+					onClickUp={() => switchUp(selectedUrl)}
+					onClickDown={() => switchDown(selectedUrl)}
+				/>
+			</div>
 			<div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center place-items-center gap-2 grid-cols-1 mx-auto px-5 pt-10 ">
 				{games &&
 					games.results &&

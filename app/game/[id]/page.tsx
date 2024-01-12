@@ -59,7 +59,7 @@ function Game({ params }: { params: { id: number } }) {
 					<div className="flex flex-col w-[45rem] md:w-[34rem] xl:w-[45rem] ">
 						<Carousel className="w-full ">
 							<CarouselContent>
-								{dataImg.map(( item: string, index: number) => (
+								{dataImg.map((item: string, index: number) => (
 									<CarouselItem key={index}>
 										<div className="p-1">
 											<Image
@@ -75,8 +75,8 @@ function Game({ params }: { params: { id: number } }) {
 									</CarouselItem>
 								))}
 							</CarouselContent>
-							<CarouselPrevious />
-							<CarouselNext />
+							<CarouselPrevious className="hidden lg:flex" />
+							<CarouselNext className="hidden lg:flex" />
 						</Carousel>
 						<Body selectedGameData={data && data} />
 						<Description selectedGameData={data && data} />
@@ -89,12 +89,3 @@ function Game({ params }: { params: { id: number } }) {
 	);
 }
 export default Game;
-// <Image
-// 								src={data && data?.background_image}
-// 								alt={data && data?.name}
-// 								width={500}
-// 								height={500}
-// 								quality={65}
-// 								priority={false}
-// 								className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md "
-// 							/>

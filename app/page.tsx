@@ -15,6 +15,7 @@ export default function Home() {
 			<LeftMenu selectedUrl={selectedUrl} setSelectedUrl={setSelectedUrl} />
 			<main className=" mt-16 w-[calc(100vw)-320px] lg:ml-[290px] grid-cols-1  mx-auto  pb-14 selection:bg-primary ">
 				<DisplayGames
+				 setSelectedUrl={setSelectedUrl}
 					selectedUrl={selectedUrl}
 					pageIndex={pageIndex}
 					setPageIndex={setPageIndex}
