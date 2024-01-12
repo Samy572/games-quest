@@ -36,8 +36,8 @@ const DisplayGames = ({
 
 	const switchUp = (selectedUrl: string) => {
 		const copySelectedUrl = parseInt(selectedUrl);
-		if (copySelectedUrl >= 2024) {
-			return setSelectedUrl('2023');
+		if (copySelectedUrl === 2024) {
+			return setSelectedUrl('2024');
 		}
 		if (copySelectedUrl !== 2024) {
 			return setSelectedUrl(String(copySelectedUrl + 1));
