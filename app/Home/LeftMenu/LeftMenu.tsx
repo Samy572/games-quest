@@ -1,6 +1,6 @@
 'use client';
 import List from '../../../src/components/ui/list';
-import { ChevronDown, ChevronUp, Flame, Sparkles, Trophy } from 'lucide-react';
+import { ChevronDown, ChevronUp, Flame, Trophy } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/src/components/ui/button';
 import MyListMenu from './mylistmenu';

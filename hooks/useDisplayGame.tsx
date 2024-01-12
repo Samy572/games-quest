@@ -22,6 +22,8 @@ const useDisplayGame = ({
 
 	const [prevSelectedUrl, setPrevSelectedUrl] = useState<string | null>(null);
 
+	
+
 	const fetchGames = async (
 		selectedUrl: string,
 		pageIndex: number,

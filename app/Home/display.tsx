@@ -46,7 +46,7 @@ const DisplayGames = ({
 
 	const switchDown = (selectedUrl: string) => {
 		const copySelectedUrl = parseInt(selectedUrl);
-		setSelectedUrl(String(copySelectedUrl - 1));
+		return setSelectedUrl(String(copySelectedUrl - 1));
 	};
 
 	return (

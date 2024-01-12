@@ -5,7 +5,6 @@ import { Header } from './Home/Header/Header';
 import { Navmenu } from '../src/components/navmenu';
 import { useState } from 'react';
 import Pagination from './Home/pagination';
-import { Paginations } from '@/src/components/ui/paginations';
 export default function Home() {
 	const [selectedUrl, setSelectedUrl] = useState('2024');
 	const [pageIndex, setPageIndex] = useState(1);
