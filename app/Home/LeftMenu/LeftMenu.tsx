@@ -14,9 +14,14 @@ export const LeftMenu = ({ selectedUrl, setSelectedUrl }: Props) => {
 
 	const showMoreYear = () => {
 		const copy = [...year];
+		const allYears = Array.from(
+			{ length: 2024 - 1990 + 1 },
+			(_, index) => 1990 + index
+		);
+		allYears.reverse();
+		console.log(allYears);
 		if (year.length < 5) {
-			copy.push('2020', '2019', '2018', '2017', '2016');
-			setYear(copy);
+			setYear(String(allYears).split(','));
 		}
 		if (year.length > 5) {
 			setYear(copy.slice(0, 4));
