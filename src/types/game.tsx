@@ -6,6 +6,7 @@ export interface GameCardType {
 	id: number;
 	isChecked: false;
 	website: string;
+	rating: number;
 	genres: [
 		{
 			name: string;
@@ -21,4 +22,3 @@ export interface GameCardType {
 		}
 	];
 }
-
