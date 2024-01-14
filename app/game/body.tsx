@@ -12,7 +12,6 @@ import Rating from '@/src/components/rating';
 const Body = ({ selectedGameData }: { selectedGameData: GameCardType }) => {
 	const { handleAddFavoris, listFavorite } = useFavoris();
 	const website = selectedGameData.website;
-	console.log(selectedGameData);
 
 	return (
 		<div className="text-left pt-5 text-4xl">

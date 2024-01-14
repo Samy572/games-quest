@@ -9,7 +9,7 @@ export const displayIcon = (name: string, imgPath: string) => {
 					alt="pc"
 					width={18}
 					height={18}
-					priority={false}
+					priority
 					className="p-0"
 				/>
 			);
@@ -21,6 +21,7 @@ export const displayIcon = (name: string, imgPath: string) => {
 				<Image
 					src={`${imgPath}/ps5.svg`}
 					alt="playstation"
+					priority
 					width={18}
 					height={18}
 				/>
@@ -30,7 +31,13 @@ export const displayIcon = (name: string, imgPath: string) => {
 		case 'Xbox Series S/X':
 		case 'Xbox One':
 			return (
-				<Image src={`${imgPath}/xbox.svg`} alt="xbox" width={18} height={18} />
+				<Image
+					src={`${imgPath}/xbox.svg`}
+					alt="xbox"
+					width={18}
+					height={18}
+					priority
+				/>
 			);
 
 		case 'macOS':
