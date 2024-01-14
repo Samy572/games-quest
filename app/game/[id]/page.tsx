@@ -28,7 +28,7 @@ function Game({ params }: { params: { id: number } }) {
 			const data = await response.json();
 			const copyDataImg = async () => {
 				await data;
-				const copy = [data?.background_image, data.background_image_additional];
+				const copy = [data.background_image, data.background_image_additional];
 				setDataImg(copy);
 			};
 			copyDataImg();
@@ -50,7 +50,7 @@ function Game({ params }: { params: { id: number } }) {
 	return (
 		<div className="px-4 select-none pb-14 ">
 			<Logo className="pt-5  lg:text-left" />
-			<nav className="hidden lg:block fixed top-44 left-10 right-0">
+			<nav className="hidden lg:block fixed w-fit top-44 left-10 right-0">
 				<Home />
 				<MyListMenu />
 			</nav>
@@ -61,10 +61,10 @@ function Game({ params }: { params: { id: number } }) {
 							<CarouselContent>
 								{dataImg.map((item: string, index: number) => (
 									<CarouselItem key={index}>
-										<div className="p-1">
+										<div className="p-1 ">
 											<Image
 												src={data && item}
-												alt={data && data?.name}
+												alt={data && data.name}
 												width={500}
 												height={500}
 												quality={65}
@@ -75,7 +75,7 @@ function Game({ params }: { params: { id: number } }) {
 									</CarouselItem>
 								))}
 							</CarouselContent>
-							<CarouselPrevious className="hidden lg:flex" />
+							<CarouselPrevious className="hidden lg:flex " />
 							<CarouselNext className="hidden lg:flex" />
 						</Carousel>
 						<Body selectedGameData={data && data} />
@@ -83,7 +83,6 @@ function Game({ params }: { params: { id: number } }) {
 					</div>
 				</div>
 			)}
-
 			<Navmenu />
 		</div>
 	);

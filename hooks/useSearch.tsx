@@ -12,8 +12,8 @@ const useSearch = () => {
 		setSearchInput('');
 	};
 
-	const searchGames = () => {
-		return fetch(
+	const searchGames = async () => {
+		return await fetch(
 			`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_SECRET}&search=${searchInput}`
 		).then((res) => res.json());
 	};
