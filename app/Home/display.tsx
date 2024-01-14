@@ -83,7 +83,7 @@ const DisplayGames = ({
 										width={300}
 										height={300}
 										quality={25}
-										priority={true}
+										priority
 										style={{ width: '400px', height: '200px' }}
 									/>
 									<CardTitle

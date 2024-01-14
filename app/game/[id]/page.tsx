@@ -68,7 +68,7 @@ function Game({ params }: { params: { id: number } }) {
 												width={500}
 												height={500}
 												quality={65}
-												priority={false}
+												priority
 												className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md "
 											/>
 										</div>
