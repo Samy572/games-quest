@@ -17,7 +17,6 @@
 
 - [🙌 Contributors](#contributors)
 
-- [📄 License](#license)
 
 ## 💻 Stack
 
