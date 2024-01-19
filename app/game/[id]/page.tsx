@@ -1,13 +1,13 @@
 'use client';
 import Logo from '@/src/components/logo-title';
 import { Navmenu } from '@/src/components/navmenu';
-import Image from 'next/image';
 import Body from '../body';
 import Description from '../description';
 import { useQuery } from 'react-query';
 import Loader from '@/src/components/ui/loader';
 import Home from '@/app/Home/LeftMenu/home';
 import MyListMenu from '@/app/Home/LeftMenu/mylistmenu';
+import { useState } from 'react';
 import {
 	Carousel,
 	CarouselContent,
@@ -15,7 +15,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from '@/src/components/ui/carousel';
-import { useState } from 'react';
+import Image from 'next/image';
 
 function Game({ params }: { params: { id: number } }) {
 	const [dataImg, setDataImg] = useState<string[]>([]);
@@ -41,6 +41,7 @@ function Game({ params }: { params: { id: number } }) {
 	const { data, error, isLoading } = useQuery({
 		queryKey: ['games-selected'],
 		queryFn: () => getSelectedGameData(),
+		refetchOnWindowFocus: false,
 	});
 
 	if (isLoading) return <Loader />;
@@ -57,6 +58,7 @@ function Game({ params }: { params: { id: number } }) {
 			{data && (
 				<div className="pt-5  flex justify-center  ">
 					<div className="flex flex-col w-[45rem] md:w-[34rem] xl:w-[45rem] ">
+						
 						<Carousel className="w-full ">
 							<CarouselContent>
 								{dataImg.map((item: string, index: number) => (
@@ -69,7 +71,7 @@ function Game({ params }: { params: { id: number } }) {
 												height={500}
 												quality={65}
 												priority
-												className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[18rem] object-cover shadow-md "
+												className="mx-auto opacity-80 rounded-2xl w-[45rem]  h-[20rem] object-cover shadow-md "
 											/>
 										</div>
 									</CarouselItem>

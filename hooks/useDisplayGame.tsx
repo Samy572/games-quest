@@ -18,11 +18,10 @@ const useDisplayGame = ({
 	} = useQuery({
 		queryKey: ['games', selectedUrl, pageIndex, setPageIndex],
 		queryFn: () => fetchGames(selectedUrl, pageIndex, setPageIndex),
+		refetchOnWindowFocus: false,
 	});
 
 	const [prevSelectedUrl, setPrevSelectedUrl] = useState<string | null>(null);
-
-	
 
 	const fetchGames = async (
 		selectedUrl: string,
