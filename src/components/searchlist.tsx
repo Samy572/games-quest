@@ -17,25 +17,27 @@ const SearchList = ({
 	onClick?: () => void;
 }) => {
 	return (
-		<Link onClick={onClick} href={`/game/${id}`}>
-			<div className={className}>
-				{background_image && (
-					<div className="">
-						<Image
-							className="mr-2 pl-2 p-1"
-							src={background_image}
-							alt={name}
-							width={50}
-							height={50}
-						/>
+		<>
+			{(background_image && name !== undefined) || null ? (
+				<Link onClick={onClick} href={`/game/${id}`}>
+					<div className={className}>
+						{background_image && (
+							<div className="">
+								<Image
+									className="mr-2 pl-2 p-1"
+									src={background_image}
+									alt={name}
+									width={50}
+									height={50}
+								/>
+							</div>
+						)}
+						<p>{name}</p>
+						<div>{children}</div>
 					</div>
-				)}
-
-				<p>{name}</p>
-
-				<div>{children}</div>
-			</div>
-		</Link>
+				</Link>
+			) : null}
+		</>
 	);
 };
 export default SearchList;

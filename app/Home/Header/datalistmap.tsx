@@ -28,7 +28,7 @@ const DataListMap = ({ data, reset, className }: listMap) => {
 							}) => (
 								<SearchList
 									className={
-										'flex items-center  py-2 hover:bg-black text-primary select-none px-3  '
+										'flex items-center  p-3  hover:bg-black text-primary select-none px-3  '
 									}
 									key={id}
 									id={id}
@@ -37,7 +37,7 @@ const DataListMap = ({ data, reset, className }: listMap) => {
 								/>
 							)
 						)
-				: null}
+				: ''}
 		</div>
 	);
 };

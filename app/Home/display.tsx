@@ -96,14 +96,16 @@ const DisplayGames = ({
 										<h3 className="text-xl  ">
 											<strong>Genres:</strong>
 										</h3>
-										<ul className=" flex justify-between ">
-											<div className="">
+										<div className="flex justify-between">
+											<ul className=" flex flex-col ">
 												{genres.slice(0, 2).map((genre: { name: string }) => (
 													<li key={genre.name}>{genre.name}</li>
 												))}
-											</div>
-											<Displayplatforms platforms={platforms} img="img" />
-										</ul>
+											</ul>
+											<ul className="">
+												<Displayplatforms platforms={platforms} img="img" />
+											</ul>
+										</div>
 									</CardDescription>
 								</CardHeader>
 								<CardFooter>
